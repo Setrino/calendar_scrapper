@@ -15,7 +15,7 @@ $(document).ready(function() {
                 var json = $.parseJSON(data);
                 //now json variable contains data in json format
                 //let's display a few items
-                $('#results').html('Plugin name: ' + json.name + '<br />Author: ' + json.author.name);
+                $('#results').html('Plugin name: ' + json.author[3].name + '<br />Author: ' + json.author[3].label);
             },error: function(XMLHttpRequest, textStatus, errorThrown) {
     alert(textStatus+" - "+errorThrown);
 }

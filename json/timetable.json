@@ -1,6 +1,64 @@
 {
-  "name": "JP",
-  "author": {
-    "name": "Me"
-  }
+  "timetable": [
+    {
+      "day": "Tuesday",
+      "time_start": 0,
+      "time_end": 0,
+      "lecture_name": null,
+      "location": null,
+      "group": null,
+      "period": null,
+      "year": "Bachelor 1 Automne",
+      "lecturer": null,
+      "details": null
+    },
+    {
+      "day": "Monday",
+      "time_start": "12:15",
+      "time_end": "15:00",
+      "lecture_name": "Economie politique I",
+      "location": "Anthropole/1031",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "Bachelor 1",
+      "lecturer": "D.Rohner",
+      "details": ""
+    },
+    {
+      "day": "Monday",
+      "time_start": "15:15",
+      "time_end": "18:00",
+      "lecture_name": "Economie politique I",
+      "location": "Anthropole/1031",
+      "group": "groupe B",
+      "period": "Automne",
+      "year": "Bachelor 1",
+      "lecturer": "D.Bichsel",
+      "details": ""
+    },
+    {
+      "day": "Monday",
+      "time_start": "17:15",
+      "time_end": "18:00",
+      "lecture_name": "Statistique I",
+      "location": "Internef/263",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "Bachelor 1",
+      "lecturer": "V.Chavez",
+      "details": "A de 17h à 18h - B de 18h à 19h"
+    },
+    {
+      "day": "Monday",
+      "time_start": "18:15",
+      "time_end": "19:00",
+      "lecture_name": "Statistique I",
+      "location": "Anthropole/1031",
+      "group": "groupe B",
+      "period": "Automne",
+      "year": "Bachelor 1",
+      "lecturer": "V.Chavez",
+      "details": "A de 17h à 18h - B de 18h à 19h"
+    }
+  ]
 }
