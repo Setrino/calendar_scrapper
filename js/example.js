@@ -20,7 +20,15 @@ for (course in courses) {
         $('#content-core .list').each(function(day){
 
             event = $(this).text().trim().replace(/\s\s+/g, ' ').split(" ");
-            time = event.slice(0, 3).join(" ");
+
+            if(event.length > 1){
+
+            recursiveEvents(null, '', event, course, days[day], function(){
+
+                console.log(timetable);
+            });}
+
+            /*time = event.slice(0, 3).join(" ");
             subject = event.slice(3, 5).join(" ");
             room = event.slice(5, 6).join(" ");
 
@@ -38,12 +46,22 @@ for (course in courses) {
                     //console.log(temp);
                 }else if(temp.match(/Automne|Printemps/i)){
 
+                    //console.log(temp);
+                }else if(temp.match(/groupe/i)){
+
+                    //console.log(temp);
+                }else if(temp.match(/[a-z]+\./i)){
+
+                    //console.log(temp);
+                }else{
+
                     console.log(temp);
                 }
-            }
+            }*/
 
             //console.log(course + " " + time + " " + subject + " " + room);
         });
+
         /*$('#calendar .days td').each(function(day) {
             $(this).find('div').each(function() {
                 event = $(this).text().trim().replace(/\s\s+/g, ',').split(',');
@@ -60,36 +78,7 @@ for (course in courses) {
     }})(course));
 }
 
-//current - current event object
-//string - temporary string for the searched path
-
-function recursiveEvents(current, string, array){
-
-    if(array.length == 0 && string == null){
-
-        return timetable;
-    }else{
-
-        string += array.shift();
-
-        if(string.match(/Amphi|Inter|Anthr|Géop/i)){
-
-
-        }
-        else if(/\d/g.test(temp) && /:/.test(temp)){
-
-
-        }
-
-    }
-}
-
-function checkRoom(string){
-
-    return string.match(/Amphi|Inter|Anthr|Géop/i);
-}
-
-function lecture(day, year, time, value){
+function Lecture(day, course, time, value){
 
     this.day = day;
     this.time_start = time;
@@ -98,9 +87,19 @@ function lecture(day, year, time, value){
     this.location = value;
     this.group = value;
     this.period = value;
-    this.year = year;
+    this.year = course;
     this.lecturer = value;
     this.details = value;
+}
+
+//current - current event object, lecture
+//string - temporary string for the searched path
+//array - event array
+//callback - function
+
+function checkRoom(string){
+
+    return string.match(/Amphi|Inter|Anthr|Géop/i);
 }
 
 var myarray = [];
@@ -117,7 +116,7 @@ var myJSON = [];
     myarray.push(item);
 }*/
 
-myarray.push(new lecture('Tuesday', 'Bachelor 1 Automne', 0, null));
+myarray.push(new Lecture('Tuesday', 'Bachelor 1 Automne', 0, null));
 
  var lecture = {
  day: 'Monday',
@@ -191,42 +190,97 @@ jsonfile.writeFile(file, myJSON, function(err) {
   console.log(err);
 });*/
 
-function setTime_Start(time){
+Lecture.prototype.setTime_Start = function(time){
 
     this.time_start = time;
 }
 
-function setTime_End(time){
+Lecture.prototype.setTime_End = function(time){
 
     this.time_end = time;
 }
 
-function setLecture_Name(lecture){
+Lecture.prototype.setLecture_Name = function(lecture){
 
     this.lecture_name = lecture;
 }
 
-function setLocation(location){
+Lecture.prototype.setLocation = function(location){
 
     this.location = location;
 }
 
-function setGroup(group){
+Lecture.prototype.setGroup = function(group){
 
     this.group = group;
 }
 
-function setPeriod(period){
+Lecture.prototype.setPeriod = function(period){
 
     this.period = period;
 }
 
-function setLecturer(lecturer){
+Lecture.prototype.setLecturer = function(lecturer){
 
     this.lecturer = lecturer;
 }
 
-function setDetails(details){
+Lecture.prototype.setDetails = function(details){
 
     this.details = details;
+}
+
+function recursiveEvents(current, string, array, course, day, callback){
+
+    //console.log(event.length + " " + day + " " + new Lecture(day, course, 0, null));
+
+    var lectureT = current;
+
+    if(array.length == 0 && string == null){
+
+        callback();
+    }else{
+
+        if(current == null){
+
+            lectureT = new Lecture(day, course, 0, null);
+            //timetable.push(lectureT);
+        }
+
+        string += array.shift();
+
+        if(string.match(/Amphi|Inter|Anthr|Géop/i)){
+
+            //console.log(string);
+
+            //Check for time
+        }else if(/\d/g.test(string) && /:/.test(string)){
+
+            if(array[0] == '-'){
+                console.log("la");
+                lectureT.setTime_Start(string);
+            }else{
+                console.log("S");
+                lectureT.setTime_End(string);
+            }
+            recursiveEvents(lectureT, '', array, course, day, callback);
+        }else if(string.match(/Automne|Printemps/i)){
+
+            //console.log(string);
+        }else if(string.match(/groupe/i)){
+
+            //console.log(string);
+        }else if(string.match(/[a-z]+\./i)){
+
+            //console.log(string);
+        }else if(string.match(/-/)){
+
+            recursiveEvents(lectureT, '', array, course, day, callback);
+        }else{
+
+            //callback();
+            console.log(lectureT);
+        }
+
+    }
 }
