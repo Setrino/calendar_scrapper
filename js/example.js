@@ -9,14 +9,10 @@ courses = {
     'Bachelor 1 Automne': 9873
 };
 
-var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=9873';
+//var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=9873';
 
-function someFunction(a, b, callback) {
-    console.log('Hey doing some stuff!');
-    callback();
-}
+for(course in courses) {
 
-for (course in courses) {
     var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=' + courses[course];
 
     request(url, (function(course) { return function(err, resp, body) {
@@ -28,15 +24,16 @@ for (course in courses) {
 
             if(event.length > 1){
 
-            recursiveEvents(null, '', event, course, days[day], function(){
+                recursiveEvents(null, '', event, course, days[day], function(){
 
-                //writeToJSON();
-                console.log(timetable);
-            });}
+                    writeToJSON();
+                    //console.log(timetable);
+                });}
         });
 
     }})(course));
 }
+
 
 function Lecture(day, course, time, value){
 
@@ -79,7 +76,9 @@ Lecture.prototype.setTime_End = function(time){
 
 Lecture.prototype.setLecture_Name = function(lecture){
 
-    this.lecture_name = lecture;
+    if(this.lecture_name == null){
+        this.lecture_name = lecture;
+    }
 }
 
 Lecture.prototype.setLocation = function(location){
@@ -147,8 +146,16 @@ function recursiveEvents(current, string, array, course, day, callback){
             recursiveEvents(lectureT, '', array, course, day, callback);
         }else if(string.match(/groupe/i)){
 
-            string += ' ' + array.shift();
-            lectureT.setGroup(string);
+            if(string.length == 6){
+                string += ' ' + array.shift();
+                lectureT.setGroup(string);
+            }else{
+                var tempS = string.split(' ').pop();
+                var string = string.substring(0, string.length - 7);
+                tempS += ' ' + array.shift();
+                lectureT.setGroup(tempS);
+                lectureT.setDetails(string);
+            }
             recursiveEvents(lectureT, '', array, course, day, callback);
             //Lecturer's name
         }else if(string.match(/[a-z]+\./i)){
@@ -167,9 +174,13 @@ function recursiveEvents(current, string, array, course, day, callback){
             if(string.match(/-/) && string.length == 1){
 
                 recursiveEvents(lectureT, '', array, course, day, callback);
-            }else if(array.length != 0 && checkRoom(array[0])){
+            }else if(array.length >1 && checkRoom(array[0])){
 
-                lectureT.setLecture_Name(string);
+                if(checkLecturer(array[1])){
+                    lectureT.setDetails(string + ' ' + array.shift());
+                }else{
+                    lectureT.setLecture_Name(string);
+                }
                 recursiveEvents(lectureT, '', array, course, day, callback);
             }else if(array.length != 0 && checkLecturer(array[0])){
 
