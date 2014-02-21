@@ -1,6 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
 var jsonfile = require('jsonfile');
+var async = require('async');
 var file = 'json/timetableT.json';
 var timetable = [];
 
@@ -9,11 +10,12 @@ courses = {
     'Bachelor 1 Automne': 9873
 };
 
-//var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=9873';
+var courseIds = Object.keys(courses);
 
-for(course in courses) {
+function perCourse(courseId, callback) {
+    var course = courses[courseId];
 
-    var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=' + courses[course];
+    var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=' + course;
 
     request(url, (function(course) { return function(err, resp, body) {
         $ = cheerio.load(body);
@@ -26,14 +28,16 @@ for(course in courses) {
 
                 recursiveEvents(null, '', event, course, days[day], function(){
 
-                    writeToJSON();
-                    //console.log(timetable);
+                    //writeToJSON();
                 });}
-        });
-
-    }})(course));
+        }), callback();
+    }})(courseId));
 }
 
+async.each(courseIds, perCourse, function (err) {
+    // Executed after each course has been processed.
+    writeToJSON();
+});
 
 function Lecture(day, course, time, value){
 

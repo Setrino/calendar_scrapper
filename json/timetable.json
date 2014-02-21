@@ -270,23 +270,23 @@
       "time_end": "12:00",
       "lecture_name": "Modèles informatiques",
       "location": "Anthropole/1031",
-      "group": "Exercices groupe B",
+      "group": "groupe B",
       "period": "Automne",
       "year": "Bachelor 1 Automne",
       "lecturer": "T.Estier",
-      "details": null
+      "details": "Exercices"
     },
     {
       "day": "Friday",
       "time_start": "15:15",
       "time_end": "17:00",
-      "lecture_name": "Exercices - première séance le 04.10.2013 - séance du 13.12",
-      "location": "Amphipole/D",
+      "lecture_name": "Economie politique I",
+      "location": "Anthropole/1031",
       "group": null,
       "period": "Automne",
       "year": "Bachelor 1 Automne",
       "lecturer": "D.Rohner",
-      "details": null
+      "details": "Exercices - première séance le 04.10.2013 - séance du 13.12 Amphipole/D"
     }
   ]
 }
