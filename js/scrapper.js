@@ -35,7 +35,7 @@ function perCourse(courseId, callback) {
 }
 
 async.each(courseIds, perCourse, function (err) {
-    // Executed after each course has been processed.
+    // Executed after for loop finished
     writeToJSON();
 });
 
