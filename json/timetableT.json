@@ -37,6 +37,18 @@
       "details": "A de 17h à 18h - B de 18h à 19h"
     },
     {
+      "day": "Monday",
+      "time_start": "17:15",
+      "time_end": "19:00",
+      "lecture_name": "Statistique I",
+      "location": "Internef/263",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "Bachelor 1 Automne",
+      "lecturer": "V.Chavez",
+      "details": "A de 17h à 18h - B de 18h à 19h"
+    },
+    {
       "day": "Tuesday",
       "time_start": "08:00",
       "time_end": "10:00",
@@ -173,11 +185,11 @@
       "time_start": "08:00",
       "time_end": "10:00",
       "lecture_name": "Mathématiques I",
-      "location": "Amphipôle/B",
-      "group": "groupe A",
+      "location": "Amphipôle/A",
+      "group": "groupe B",
       "period": "Automne",
       "year": "Bachelor 1 Automne",
-      "lecturer": "F.Dufresne",
+      "lecturer": "C.Darbellay",
       "details": null
     },
     {
@@ -185,11 +197,11 @@
       "time_start": "08:00",
       "time_end": "10:00",
       "lecture_name": "Mathématiques I",
-      "location": "Amphipôle/A",
-      "group": "groupe B",
+      "location": "Amphipôle/B",
+      "group": "groupe A",
       "period": "Automne",
       "year": "Bachelor 1 Automne",
-      "lecturer": "C.Darbellay",
+      "lecturer": "F.Dufresne",
       "details": null
     },
     {
@@ -242,6 +254,18 @@
     },
     {
       "day": "Thursday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "Statistique I",
+      "location": "Anthropole/1031",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "Bachelor 1 Automne",
+      "lecturer": "V.Chavez",
+      "details": "Exercices"
+    },
+    {
+      "day": "Thursday",
       "time_start": "17:15",
       "time_end": "19:00",
       "lecture_name": "Comptabilité financière I",
@@ -266,11 +290,35 @@
     },
     {
       "day": "Friday",
+      "time_start": "08:30",
+      "time_end": "10:00",
+      "lecture_name": "Modèles informatiques",
+      "location": "Internef/263",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "Bachelor 1 Automne",
+      "lecturer": "T.Estier",
+      "details": null
+    },
+    {
+      "day": "Friday",
       "time_start": "10:15",
       "time_end": "12:00",
       "lecture_name": "Modèles informatiques",
       "location": "Anthropole/1031",
       "group": "groupe B",
+      "period": "Automne",
+      "year": "Bachelor 1 Automne",
+      "lecturer": "T.Estier",
+      "details": "Exercices"
+    },
+    {
+      "day": "Friday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "Modèles informatiques",
+      "location": "Internef/263",
+      "group": "groupe A",
       "period": "Automne",
       "year": "Bachelor 1 Automne",
       "lecturer": "T.Estier",

@@ -39,6 +39,9 @@ async.each(courseIds, perCourse, function (err) {
     writeToJSON();
 });
 
+
+//Lecture Object
+//dublicate - array for dublicate elements. [location, group]
 function Lecture(day, course, time, value){
 
     this.day = day;
@@ -51,6 +54,7 @@ function Lecture(day, course, time, value){
     this.year = course;
     this.lecturer = value;
     this.details = value;
+    this.dublicate = value;
 }
 
 //current - current event object, lecture
@@ -87,12 +91,20 @@ Lecture.prototype.setLecture_Name = function(lecture){
 
 Lecture.prototype.setLocation = function(location){
 
-    this.location = location;
+    if(this.location != null){
+        this.dublicate = [location];
+    }else{
+        this.location = location;
+    }
 }
 
 Lecture.prototype.setGroup = function(group){
 
-    this.group = group;
+    if(this.group != null){
+        this.dublicate.push(group);
+    }else{
+        this.group = group;
+    }
 }
 
 Lecture.prototype.setPeriod = function(period){
@@ -165,6 +177,18 @@ function recursiveEvents(current, string, array, course, day, callback){
         }else if(string.match(/[a-z]+\./i)){
 
             lectureT.setLecturer(string);
+
+            if(lectureT.dublicate != null){
+                var tempObject = {};
+                for (var prop in lectureT) {
+                    tempObject[prop] = lectureT[prop];
+                }
+                tempObject.location = lectureT.dublicate[0];
+                tempObject.group = lectureT.dublicate[1];
+                delete tempObject.dublicate;
+                timetable.push(tempObject);
+            }
+            delete lectureT.dublicate;
             timetable.push(lectureT);
             recursiveEvents(null, '', array, course, day, callback);
         }else if(string.match(/^[a-z0-9À-ÿ\-\ '!@#\$%\^\&*\)\(+=., ]+$/i)){
