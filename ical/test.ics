@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:undefined
+BEGIN:VEVENT
+UID:869d6786-d8a2-4460-aa11-c7159c669224
+DTSTAMP:20140225T134232
+DTSTART;TZID=Europe/Amsterdam:20140225T080000
+SUMMARY:Priestly Duties
+DESCRIPTION:Home flu visit.
+ORGANIZER;CN=Nacho Libre:mailto:luchador@monastery.org
+LOCATION:Casa
+URL;VALUE=URI:http://google.com/search?q=nacho+libre
+RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=Europe/Amsterdam:2014-03-05T02:00:00-05:00
+END:VEVENT
+BEGIN:VEVENT
+UID:fbc9527d-f083-413a-8893-9d8084b1ebec
+DTSTAMP:20140225T134232
+DTSTART;TZID=Europe/Amsterdam:20140225T090000
+DTEND;TZID=Europe/Amsterdam:20140225T093000
+SUMMARY:Another Thing
+DESCRIPTION:Lecture will start
+ORGANIZER;CN=Nacho Libre:mailto:luchador@monastery.org
+LOCATION:Casa
+URL;VALUE=URI:http://google.com/search?q=nacho+libre
+END:VEVENT
+END:VCALENDAR

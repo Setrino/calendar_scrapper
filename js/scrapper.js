@@ -4,10 +4,11 @@ var jsonfile = require('jsonfile');
 var async = require('async');
 var file = 'json/timetableT.json';
 var timetable = [];
+var timetableS = '';    //String of events
 
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 courses = {
-    'Bachelor 1 Automne': 9873
+    'bac1au': 9873
 };
 
 var courseIds = Object.keys(courses);
@@ -72,54 +73,57 @@ function checkLecturer(string){
     return string.match(/[a-z]+\./i);
 }
 
-Lecture.prototype.setTime_Start = function(time){
+Lecture.prototype = {
 
-    this.time_start = time;
-}
+    setTime_Start : function(time){
 
-Lecture.prototype.setTime_End = function(time){
+        this.time_start = time;
+    },
 
-    this.time_end = time;
-}
+    setTime_End : function(time){
 
-Lecture.prototype.setLecture_Name = function(lecture){
+        this.time_end = time;
+    },
 
-    if(this.lecture_name == null){
-        this.lecture_name = lecture;
+    setLecture_Name : function(lecture){
+
+        if(this.lecture_name == null){
+            this.lecture_name = lecture;
+        }
+    },
+
+    setLocation : function(location){
+
+        if(this.location != null){
+            this.dublicate = [location];
+        }else{
+            this.location = location;
+        }
+    },
+
+    setGroup : function(group){
+
+        if(this.group != null){
+            this.dublicate.push(group);
+        }else{
+            this.group = group;
+        }
+    },
+
+    setPeriod: function(period){
+
+        this.period = period;
+    },
+
+    setLecturer: function(lecturer){
+
+        this.lecturer = lecturer;
+    },
+
+    setDetails: function(details){
+
+        this.details = details;
     }
-}
-
-Lecture.prototype.setLocation = function(location){
-
-    if(this.location != null){
-        this.dublicate = [location];
-    }else{
-        this.location = location;
-    }
-}
-
-Lecture.prototype.setGroup = function(group){
-
-    if(this.group != null){
-        this.dublicate.push(group);
-    }else{
-        this.group = group;
-    }
-}
-
-Lecture.prototype.setPeriod = function(period){
-
-    this.period = period;
-}
-
-Lecture.prototype.setLecturer = function(lecturer){
-
-    this.lecturer = lecturer;
-}
-
-Lecture.prototype.setDetails = function(details){
-
-    this.details = details;
 }
 
 function recursiveEvents(current, string, array, course, day, callback){
