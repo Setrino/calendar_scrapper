@@ -62,6 +62,8 @@
 			this._generateTemplate();
 			this._initEvents();
 
+			console.log(this.options.jsonEvents);
+
 		},
 		_initEvents : function() {
 

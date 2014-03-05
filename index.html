@@ -49,8 +49,11 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jquery.calendario.js"></script>
 		<script type="text/javascript" src="js/data.js"></script>
+		<script type="text/javascript" src="js/json_requests.js"></script>
 		<script type="text/javascript">	
-			$(function() {
+
+
+		var json = new jsonEvents(function(value) {
 
 				var cal = $( '#calendar' ).calendario( {
 						onDayClick : function( $el, $contentEl, dateProperties ) {
@@ -63,7 +66,8 @@
                             }
 
 						},
-						caldata : codropsEvents
+						caldata : codropsEvents,
+						jsonEvents : value
 					} ),
 					$month = $( '#custom-month' ).html( cal.getMonthName() ),
 					$year = $( '#custom-year' ).html( cal.getYear() );
@@ -161,7 +165,6 @@
                 }
 
             }
-
 		</script>
 	</body>
 </html>
