@@ -20,6 +20,23 @@ body {
 	background-size: 100% 100%;
 }
 
+.download_links{
+	display: inline;
+	float: right;
+	background: rgba(255,255,255,0.3);
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	color: #333;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	margin-right: 1.5em;
+}
+
+.download_links a:hover{
+	color: rgba(255,255,255,0.5);
+}
+
 .custom-calendar-full {
 	position: absolute;
 	top: 24px;
