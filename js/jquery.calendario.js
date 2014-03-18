@@ -177,7 +177,7 @@
 						}
 
 						if( content !== '' ) {
-							inner += '<div>' + content + '</div>';
+							inner += '<div class="fc-calendar-data">' + content + '</div>';
 						}
 
 						++day;

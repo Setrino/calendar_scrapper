@@ -592,17 +592,4 @@ body {
         margin-top: 10px;
         width: 300px;
     }
-
-    .fc-calendar-container,
-    .fc-calendar,
-    .fc-calendar .fc-head,
-    .fc-calendar .fc-row > div > span.fc-date {
-        position: relative;
-        top: auto;
-        left: auto;
-        bottom: auto;
-        right: auto;
-        height: auto;
-        width: auto;
-    }
 }
