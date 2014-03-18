@@ -71,7 +71,7 @@ body {
 
 .custom-header h2 {
 	color: #fff;
-	width: 30%;
+	width: 317px;
 }
 
 .custom-header h2 a, 
@@ -91,25 +91,26 @@ body {
 }
 
 .custom-header h3 {
-	width: 350px;
+	width: 410px;
 	color: #ddd;
 	color: rgba(255,255,255,0.6);
 	font-weight: 300;
 	line-height: 30px;
 	text-align: right;
 	margin-left: 15px;
+    float: right;
 }
 
 .custom-header nav {
-	position: absolute;
-	right: 20px;
-	top: 20px;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+    position: relative;
+    display: inline-block;
+    float: right;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .custom-header nav span {
@@ -245,7 +246,7 @@ body {
 #groups{
 	position: relative;
 	height: 30px;
-	width: 200px;
+	width: 160px;
 	display: inline-block;
 	float: left;
 }
@@ -408,6 +409,26 @@ body {
 	background: rgba(255,255,255,0.3);
 }
 
+@media screen and (max-width: 1152px) , screen and (max-height: 450px) {
+
+    .year-related{
+        position: relative;
+        width: 380px;
+        float: left;
+        right: 307px;
+    }
+
+    .custom-header h2{
+        position: relative;
+        bottom: 40px;
+    }
+
+    .custom-header h3{
+        position: relative;
+        bottom: 30px;
+    }
+}
+
 @media screen and (max-width: 880px) , screen and (max-height: 450px) {
 	html, body, .container {
 		height: auto;
@@ -416,6 +437,7 @@ body {
 	.custom-header,
 	.custom-header nav,
 	.custom-calendar-full,
+    .year-related,
 	.fc-calendar-container, 
 	.fc-calendar,
 	.fc-calendar .fc-head,
@@ -442,6 +464,7 @@ body {
 		float: none;
 		text-align: left;
 		margin-left: 0px;
+        bottom: 0px;
 	}
 
 	.custom-header h3 {
@@ -449,9 +472,10 @@ body {
 	}
 
 	.custom-header nav{
-	width: 200px;
-	height: 30px;
-	right: 5px;
+	    width: 200px;
+	    height: 30px;
+	    right: 5px;
+        float: left;
 	}
 
 	#custom-inner > div.custom-header.clearfix > h3{
