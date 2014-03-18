@@ -16,7 +16,6 @@
 		
 		this.$el = $( element );
 		this._init( options );
-		
 	};
 
 	// the options
@@ -62,7 +61,6 @@
             console.log(this.options.jsonEvents);
 			this._generateTemplate();
 			this._initEvents();
-
 		},
 		_initEvents : function() {
 
@@ -106,7 +104,7 @@
 
 			this.$el.find( 'div.fc-calendar' ).remove().end().append( this.$cal );
 
-			if( callback ) { callback.call(); }
+			if( callback ) { callback.call();}
 
 		},
 		_getHead : function() {
@@ -170,7 +168,7 @@
 
                             if(lecture.day == this.options.weeks[currentDay]){
                                 dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
-                                    "</br>" + lecture.lecturer + " " + ((lecture.group != null) ? lecture.group : '')  + "</br></br>";
+                                    "</br>" + ((lecture.group != null) ? lecture.group : '') + " | " + lecture.lecturer + "</br></br>";
                             }
                         }
 
@@ -398,3 +396,4 @@
 	};
 	
 } )( jQuery, window );
+

@@ -56,8 +56,19 @@
 		<script type="text/javascript" src="js/jquery.calendario.js"></script>
 		<script type="text/javascript" src="js/data.js"></script>
 		<script type="text/javascript" src="js/json_requests.js"></script>
-		<script type="text/javascript">	
+		<script type="text/javascript">
 
+
+            function waitForElement(){
+                if($('.fc-today').offset() != undefined){
+                    $(window).scrollTop($('.fc-today').offset().top - 20);
+                }
+                else{
+                    setTimeout(function(){
+                        waitForElement();
+                    },250);
+                }
+            };
 
 		var json = new jsonEvents(function(value) {
 
@@ -110,6 +121,8 @@
 			
 			});
 
+            waitForElement();
+
 			function DropDown(el) {
 				this.dd = el;
 				this.initEvents();
@@ -147,9 +160,9 @@
                                     '</h4></div>'),
                         $close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
 
-                console.log($contentEl);
                 $events.append( "<div class='custom-content-text'></br>" + $contentEl.html() + '</div>' , $close ).insertAfter( $wrapper );
-                $('#custom-content-reveal').css('height', $('.custom-content-text').height() + 85);
+                $('#custom-content-reveal').css('height', $('.custom-content-text').height() + 75);
+
 
                 setTimeout( function() {
                     $events.css( 'top', '0%' );
@@ -171,8 +184,8 @@
 
                     $events.css( 'top', '100%' );
                     Modernizr.csstransitions ? $events.on( transEndEventName, function() { $( this ).remove(); } ) : $events.remove();
-
                 }
+                //
 
             }
 		</script>
