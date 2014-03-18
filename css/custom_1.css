@@ -469,6 +469,7 @@ body {
 
 	.custom-header h3 {
 		padding-left: 5px;
+
 	}
 
 	.custom-header nav{
@@ -590,4 +591,9 @@ body {
         margin-top: 10px;
         width: 300px;
     }
+
+    body{
+        overflow-x: hidden;
+    }
+
 }

@@ -168,7 +168,7 @@
 
                             if(lecture.day == this.options.weeks[currentDay]){
                                 dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
-                                    "</br>" + ((lecture.group != null) ? lecture.group : '') + " | " + lecture.lecturer + "</br></br>";
+                                    "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') + lecture.lecturer + "</br></br>";
                             }
                         }
 
