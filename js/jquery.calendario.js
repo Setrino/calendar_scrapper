@@ -59,10 +59,9 @@
 			this.month = ( isNaN( this.options.month ) || this.options.month == null) ? this.today.getMonth() : this.options.month - 1;
 			this.year = ( isNaN( this.options.year ) || this.options.year == null) ? this.today.getFullYear() : this.options.year;
 			this.caldata = this.options.caldata || {};
+            console.log(this.options.jsonEvents);
 			this._generateTemplate();
 			this._initEvents();
-
-			console.log(this.options.jsonEvents);
 
 		},
 		_initEvents : function() {
@@ -161,8 +160,18 @@
 						inner += '<span class="fc-date">' + day + '</span><span class="fc-weekday">' + this.options.weekabbrs[ j + this.options.startIn > 6 ? j + this.options.startIn - 6 - 1 : j + this.options.startIn ] + '</span>';
 
 						// this day is:
-						var strdate = ( this.month + 1 < 10 ? '0' + ( this.month + 1 ) : this.month + 1 ) + '-' + ( day < 10 ? '0' + day : day ) + '-' + this.year,
-							dayData = this.caldata[ strdate ];
+						var currentDay =  j + this.options.startIn > 6 ? j + this.options.startIn - 6 - 1 : j + this.options.startIn,
+                            //strdate = ( this.month + 1 < 10 ? '0' + ( this.month + 1 ) : this.month + 1 ) + '-' + ( day < 10 ? '0' + day : day ) + '-' + this.year,
+							dayData = '';
+                        //console.log(currentDay + " " + this.options.weekabbrs[currentDay]);
+                        for(var object in this.options.jsonEvents.timetable){
+
+                            var lecture = this.options.jsonEvents.timetable[object];
+
+                            if(lecture.day == this.options.weeks[currentDay]){
+                                dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name + "</br>";
+                            }
+                        }
 
 						if( dayData ) {
 							content = dayData;

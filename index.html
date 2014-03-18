@@ -145,6 +145,7 @@
                 var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Events for ' + dateProperties.monthname + ' ' + dateProperties.day + ', ' + dateProperties.year + '</h4></div>' ),
                         $close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
 
+                console.log($contentEl);
                 $events.append( $contentEl.html() , $close ).insertAfter( $wrapper );
 
                 setTimeout( function() {

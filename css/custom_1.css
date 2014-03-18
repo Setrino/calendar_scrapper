@@ -527,8 +527,10 @@ body {
 	.custom-content-reveal {
 		width: 80%;
 		display: block;
-    	left: 40px;
+    	left: 10%;
     	height: 200px;
+        line-height: 130%;
+        text-align: left;
 	}
 
 	.custom-content-reveal a{
