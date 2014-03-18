@@ -62,7 +62,7 @@
 
 
             function waitForElement(){
-                if($('.fc-today').offset() != undefined){
+                if($('.fc-today').offset() != undefined && $(document).width() <= 880){
                     $(window).scrollTop($('.fc-today').offset().top - 20);
                 }
                 else{
