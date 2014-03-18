@@ -78,9 +78,9 @@
 						onDayClick : function( $el, $contentEl, dateProperties ) {
 
 							for( var key in dateProperties ) {
-								console.log( key + ' = ' + dateProperties[ key ] );
+								//console.log( key + ' = ' + dateProperties[ key ] );
 							}
-                            if( $contentEl.length > 0 ) {
+                            if( $contentEl.length > 0 && $(document).width() > 880) {
                                 showEvents( $contentEl, dateProperties );
                             }
 

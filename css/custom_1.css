@@ -502,6 +502,13 @@ body {
 		min-height: 50px;
 		box-shadow: inset 0 -1px rgba(255,255,255,0.2) !important;
 		border-radius: 0px !important;
+        height: 50px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
 	}
 
 	.fc-calendar .fc-row > div:empty{
@@ -526,13 +533,8 @@ body {
 		display: inline-block;
 	}
 
-	.fc-calendar .fc-row > div.fc-today {
-
-	}
-
-    .fc-date, .fc-weekday{
-
-
+    .fc-calendar .fc-row .fc-today{
+        height: auto;
     }
 
 	.fc-calendar .fc-row > div.fc-today:after { 

@@ -80,6 +80,15 @@
 						weekdayname : self.options.weeks[ idx + self.options.startIn ]
 					};
 
+                if($(document).width() <= 880){
+                    if($cell.height() == 28){
+                        console.log($cell.height());
+                        $cell.css('height', 'auto');
+                    }else{
+                        $cell.css('height', '50px');
+                    }
+                }
+
 				if( dateProp.day ) {
 					self.options.onDayClick( $cell, $content, dateProp );
 				}
