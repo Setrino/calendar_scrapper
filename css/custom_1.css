@@ -434,7 +434,7 @@ body {
 	}
 
     .custom-header h2{
-        width: auto;
+        width: 300px;
     }
 
 	.custom-header h2,
@@ -537,6 +537,11 @@ body {
 
     .custom-content-text{
     }
+
+    #groups{
+        margin-top: 10px;
+        width: 700px;
+    }
 }
 
 @media screen and (max-width: 450px) , screen and (max-height: 450px) {
@@ -555,5 +560,10 @@ body {
 	}
 
     .custom-content-text{
+    }
+
+    #groups{
+        margin-top: 10px;
+        width: 300px;
     }
 }
