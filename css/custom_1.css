@@ -429,12 +429,14 @@ body {
 		margin: 0 20px 20px;
 	}
 
+    .custom-header h2{
+        width: auto;
+    }
+
 	.custom-header h2,
 	.custom-header h3 {
 		float: none;
-		width: 400px;
 		text-align: left;
-		padding-right: 100px;
 		margin-left: 0px;
 	}
 
@@ -450,6 +452,7 @@ body {
 
 	#custom-inner > div.custom-header.clearfix > h3{
 		width: 350px;
+        padding-right: 100px;
 	}
 
 	.custom-content-reveal {
