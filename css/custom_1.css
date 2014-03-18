@@ -18,6 +18,7 @@ body {
 	-webkit-background-size: 100% 100%;
 	-moz-background-size: 100% 100%;
 	background-size: 100% 100%;
+    overflow-x: hidden;
 }
 
 .download_links{
@@ -592,8 +593,16 @@ body {
         width: 300px;
     }
 
-    body{
-        overflow-x: hidden;
+    .fc-calendar-container,
+    .fc-calendar,
+    .fc-calendar .fc-head,
+    .fc-calendar .fc-row > div > span.fc-date {
+        position: relative;
+        top: auto;
+        left: auto;
+        bottom: auto;
+        right: auto;
+        height: auto;
+        width: auto;
     }
-
 }
