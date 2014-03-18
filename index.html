@@ -142,11 +142,14 @@
 
                 hideEvents();
 
-                var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Events for ' + dateProperties.monthname + ' ' + dateProperties.day + ', ' + dateProperties.year + '</h4></div>' ),
+                var $events = $( '<div id="custom-content-reveal" class="custom-content-reveal"><h4>Events for ' +
+                                dateProperties.monthname + ' ' + dateProperties.day + ', ' + dateProperties.year +
+                                    '</h4></div>'),
                         $close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
 
                 console.log($contentEl);
-                $events.append( $contentEl.html() , $close ).insertAfter( $wrapper );
+                $events.append( "<div class='custom-content-text'></br>" + $contentEl.html() + '</div>' , $close ).insertAfter( $wrapper );
+                $('#custom-content-reveal').css('height', $('.custom-content-text').height() + 85);
 
                 setTimeout( function() {
                     $events.css( 'top', '0%' );

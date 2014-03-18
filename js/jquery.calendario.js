@@ -169,7 +169,8 @@
                             var lecture = this.options.jsonEvents.timetable[object];
 
                             if(lecture.day == this.options.weeks[currentDay]){
-                                dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name + "</br>";
+                                dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
+                                    "</br>" + lecture.lecturer + " " + ((lecture.group != null) ? lecture.group : '')  + "</br></br>";
                             }
                         }
 
