@@ -254,6 +254,13 @@ html, body{
 	width: 160px;
 	display: inline-block;
 	float: left;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 5;
 }
 
 .groupA, .groupB{
@@ -276,12 +283,6 @@ html, body{
 
 .groupA:hover, .groupB:hover{
 	color: rgba(255,255,255,0.3);
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 .groupA{
