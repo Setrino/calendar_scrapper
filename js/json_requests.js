@@ -24,10 +24,11 @@ $(document).ready(function() {
     });
 });
 
-var jsonEvents = function(callback){
+var jsonEvents = function(callback, filename){
 
     this.value = {};
-    this.requestJSON(callback);
+    this.cal = null;
+    this.requestJSON(callback, filename);
 }
 
 jsonEvents.prototype = {
@@ -36,9 +37,17 @@ jsonEvents.prototype = {
         this.value = value;
     },
 
-    requestJSON: function(callback){
+    setCal: function(cal){
+        this.cal = cal;
+    },
+
+    getCal: function(){
+        return this.cal;
+    },
+
+    requestJSON: function(callback, filename){
             $.ajax({
-            url: "json/timetable.json",
+            url: "json/" + filename + ".json",
             //force to handle it as text
             dataType: "text",
             success: function(data) {

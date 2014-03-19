@@ -58,7 +58,7 @@
 			this.month = ( isNaN( this.options.month ) || this.options.month == null) ? this.today.getMonth() : this.options.month - 1;
 			this.year = ( isNaN( this.options.year ) || this.options.year == null) ? this.today.getFullYear() : this.options.year;
 			this.caldata = this.options.caldata || {};
-            console.log(this.options.jsonEvents);
+            this.jsonEvents = this.options.jsonEvents;
 			this._generateTemplate();
 			this._initEvents();
 		},
@@ -80,9 +80,8 @@
 						weekdayname : self.options.weeks[ idx + self.options.startIn ]
 					};
 
-                if($(document).width() <= 880){
+                if($(window).width() <= 880 || $(window).height() <= 450){
                     if($cell.height() == 28){
-                        console.log($cell.height());
                         $cell.css('height', 'auto');
                     }else{
                         $cell.css('height', '50px');
@@ -97,10 +96,10 @@
 
 		},
 		// Calendar logic based on http://jszen.blogspot.pt/2007/03/how-to-build-simple-calendar-with.html
-		_generateTemplate : function( callback ) {
+		_generateTemplate : function( callback, group ) {
 
 			var head = this._getHead(),
-				body = this._getBody(),
+				body = this._getBody(group),
 				rowClass;
 
 			switch( this.rowTotal ) {
@@ -136,7 +135,7 @@
 			return html;
 
 		},
-		_getBody : function() {
+		_getBody : function(group) {
 
 			var d = new Date( this.year, this.month + 1, 0 ),
 				// number of days in the month
@@ -171,13 +170,24 @@
                             //strdate = ( this.month + 1 < 10 ? '0' + ( this.month + 1 ) : this.month + 1 ) + '-' + ( day < 10 ? '0' + day : day ) + '-' + this.year,
 							dayData = '';
                         //console.log(currentDay + " " + this.options.weekabbrs[currentDay]);
-                        for(var object in this.options.jsonEvents.timetable){
+                        for(var object in this.jsonEvents.timetable){
 
-                            var lecture = this.options.jsonEvents.timetable[object];
+                            var lecture = this.jsonEvents.timetable[object];
 
                             if(lecture.day == this.options.weeks[currentDay]){
-                                dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
-                                    "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') + lecture.lecturer + "</br></br>";
+                                if(group){
+                                    if(lecture.group != null && lecture.group.substr(6, 2) != group){
+                                        dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
+                                            "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') +
+                                                lecture.lecturer + "</br></br>";
+                                    }else if(lecture.group == null){
+                                        dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
+                                            "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') + lecture.lecturer + "</br></br>";
+                                    }
+                                }else{
+                                    dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
+                                        "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') + lecture.lecturer + "</br></br>";
+                                }
                             }
                         }
 
@@ -310,6 +320,11 @@
 			this._generateTemplate();
 
 		},
+        setJSON: function (jsonEvents ){
+
+            this.jsonEvents = jsonEvents;
+            this._generateTemplate();
+        },
 		// goes to today's month/year
 		gotoNow : function( callback ) {
 
@@ -337,7 +352,10 @@
 		},
 		gotoNextYear : function( callback ) {
 			this._move( 'year', 'next', callback );
-		}
+		},
+        excludeGroup : function( callback, group ) {
+            this._generateTemplate( callback, group );
+        }
 
 	};
 	

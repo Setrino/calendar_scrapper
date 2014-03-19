@@ -254,6 +254,12 @@ html, body{
 	width: 160px;
 	display: inline-block;
 	float: left;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .groupA, .groupB{
@@ -412,6 +418,10 @@ html, body{
 
 .no-touch .fc-calendar .fc-row > div > div a:hover {
 	background: rgba(255,255,255,0.3);
+}
+
+.line-through{
+    text-decoration: line-through;
 }
 
 @media screen and (max-width: 1152px) , screen and (max-height: 450px) {
