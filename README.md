@@ -18,6 +18,6 @@ Find the link bar with JSON | ICAL | GITHUB links (top right for desktop version
 
 ![](https://raw.githubusercontent.com/Setrino/calendar_scrapper/master/images/ical.png)
 
-* Import into iPhone/Android/Mac - Click open the downloaded file in iCal (iPhone/Mac) and import it (contact me at sk@fkdn-lab.com for details if needed).
+* Import into iPhone/Android/Mac - Click and open the downloaded file in iCal (iPhone/Mac) and import it into your calendar (contact me at sk@fkdn-lab.com for details if needed).
 * Import into Google Calendar - Follow this [link](https://support.google.com/calendar/answer/37118?hl=en)
 
