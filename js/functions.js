@@ -1,15 +1,15 @@
-function DropDown(el) {
+function DropDown(el, callback) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
     this.opts = this.dd.find('ul.dropdown > li');
     this.firstText = this.dd.find('ul.dropdown > li:last-child').text();
     this.val = '';
     this.index = -1;
-    this.initEvents();
+    this.initEvents(callback);
 }
 
 DropDown.prototype = {
-    initEvents : function() {
+    initEvents : function(callback) {
         var obj = this;
 
         obj.dd.on('click', function(event){
@@ -92,9 +92,14 @@ DropDown.prototype = {
                     if(clicked.is(".line-through")){
                         clicked.removeClass("line-through");
                     }
+                    if(!(clicked.is(".line-through") || other.is(".line-through"))){
+                        setCookie("group","", 60);
+                    }
                 }
 
                 json.setCal(cal);
+
+                callback(updateGroup);
 
             }, requestFilename(obj.firstText))
     },
@@ -108,7 +113,7 @@ DropDown.prototype = {
 
 $(function() {
 
-    var dd = new DropDown( $('#dd') );
+    var dd = new DropDown( $('#dd') , checkCookie);
 
     $(document).click(function() {
         // all dropdowns
@@ -207,16 +212,16 @@ function setCookie(c_name,value,exdays)
     document.cookie = c_name + "=" + c_value;
 }
 
-function checkCookie()
+function checkCookie(callback)
 {
 
     var group = getCookie("group");
     if (group != null && group != "") {
 
         if(group == 'A'){
-            $( '#groups .groupA' );
+            callback($( '#groups .groupA' ), $( '#groups .groupB' ));
         }else if(group == 'B'){
-            $( '#groups .groupB' );
+            callback($( '#groups .groupB' ), $( '#groups .groupA' ));
         }
     }
 }
