@@ -2,20 +2,21 @@ var request = require('request');
 var cheerio = require('cheerio');
 var jsonfile = require('jsonfile');
 var async = require('async');
-var file = 'json/timetableT.json';
+var file = '';
 var timetable = [];
 var timetableS = '';    //String of events
 
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 courses = {
-    'bac1au': 9873
+    //'bac1a': 10113,
+    'bac1p' : 10114
 };
 
 var courseIds = Object.keys(courses);
 
 function perCourse(courseId, callback) {
     var course = courses[courseId];
-
+    file = '../json/' + courseId + '.json';
     var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=' + course;
 
     request(url, (function(course) { return function(err, resp, body) {
@@ -36,7 +37,7 @@ function perCourse(courseId, callback) {
 }
 
 async.each(courseIds, perCourse, function (err) {
-    // Executed after for loop finished
+    // Executed after for loop finished;
     writeToJSON();
 });
 
@@ -65,7 +66,7 @@ function Lecture(day, course, time, value){
 
 function checkRoom(string){
 
-    return string.match(/Amphi|Inter|Anthr|Géop/i);
+    return string.match(/Amphi|Inter|Anthr|Géop/i) && !string.match(/!!!/);
 }
 
 function checkLecturer(string){
@@ -146,20 +147,33 @@ function recursiveEvents(current, string, array, course, day, callback){
         string = (string == '') ? string + array.shift() : string + ' ' + array.shift();
         //console.log(string);
 
-        if(checkRoom(string)){
+        if(string.match(/[a-z]+\.+[a-z]+\//i)){
 
+        }
+
+        if(checkRoom(string)){
+            //console.log(string);
             lectureT.setLocation(string);
             recursiveEvents(lectureT, '', array, course, day, callback);
 
             //Set time
         }else if(/\d/g.test(string) && /:/.test(string)){
 
-            if(array[0] == '-'){
-                lectureT.setTime_Start(string);
+            if(string.match(/!!!/)){
+                if(array[0].match(/[a-z]+\./i)){
+                    lectureT.setDetails(string);
+                    recursiveEvents(lectureT, '', array, course, day, callback);
+                }else{
+                    recursiveEvents(lectureT, string, array, course, day, callback);
+                }
             }else{
-                lectureT.setTime_End(string);
+                if(array[0] == '-'){
+                    lectureT.setTime_Start(string);
+                }else{
+                    lectureT.setTime_End(string);
+                }
+                recursiveEvents(lectureT, '', array, course, day, callback);
             }
-            recursiveEvents(lectureT, '', array, course, day, callback);
         }else if(string.match(/Automne|Printemps/i)){
 
             lectureT.setPeriod(string);
@@ -178,36 +192,41 @@ function recursiveEvents(current, string, array, course, day, callback){
             }
             recursiveEvents(lectureT, '', array, course, day, callback);
             //Lecturer's name
-        }else if(string.match(/[a-z]+\./i)){
+        }else if(checkLecturer(string)){
 
-            lectureT.setLecturer(string);
+            if(string.match(/\.+\s+[a-z]/i) && array.length > 1 && checkLecturer(array[0])){
+                lectureT.setDetails(string);
+                recursiveEvents(lectureT, '', array, course, day, callback);
+            }else if(string.match(/-/)){
+                recursiveEvents(lectureT, string, array, course, day, callback);
+            }else{
 
-            if(lectureT.dublicate != null){
-                var tempObject = {};
-                for (var prop in lectureT) {
-                    tempObject[prop] = lectureT[prop];
+                lectureT.setLecturer(string);
+
+                if(lectureT.dublicate != null){
+                    var tempObject = {};
+                    for (var prop in lectureT) {
+                        tempObject[prop] = lectureT[prop];
+                    }
+                    tempObject.location = lectureT.dublicate[0];
+                    tempObject.group = lectureT.dublicate[1];
+                    delete tempObject.dublicate;
+                    timetable.push(tempObject);
                 }
-                tempObject.location = lectureT.dublicate[0];
-                tempObject.group = lectureT.dublicate[1];
-                delete tempObject.dublicate;
-                timetable.push(tempObject);
+                delete lectureT.dublicate;
+                timetable.push(lectureT);
+                recursiveEvents(null, '', array, course, day, callback);
             }
-            delete lectureT.dublicate;
-            timetable.push(lectureT);
-            recursiveEvents(null, '', array, course, day, callback);
         }else if(string.match(/^[a-z0-9À-ÿ\-\ '!@#\$%\^\&*\)\(+=., ]+$/i)){
 
-            //console.log(string);
-
             if(array.length < 30){
-                //console.log(string);
+
             }
 
             if(string.match(/-/) && string.length == 1){
 
                 recursiveEvents(lectureT, '', array, course, day, callback);
-            }else if(array.length >1 && checkRoom(array[0])){
-
+            }else if(array.length > 1 && checkRoom(array[0])){
                 if(checkLecturer(array[1])){
                     lectureT.setDetails(string + ' ' + array.shift());
                 }else{
@@ -216,8 +235,12 @@ function recursiveEvents(current, string, array, course, day, callback){
                 recursiveEvents(lectureT, '', array, course, day, callback);
             }else if(array.length != 0 && checkLecturer(array[0])){
 
-                lectureT.setDetails(string);
-                recursiveEvents(lectureT, '', array, course, day, callback);
+                if(array[0].match(/[a-z]+\.+[a-z]+\//i)){
+                    recursiveEvents(lectureT, string, array, course, day, callback);
+                }else{
+                    lectureT.setDetails(string);
+                    recursiveEvents(lectureT, '', array, course, day, callback);
+                }
             }else{
                 recursiveEvents(lectureT, string, array, course, day, callback);
             }
@@ -233,6 +256,23 @@ function recursiveEvents(current, string, array, course, day, callback){
 function writeToJSON(){
 
     var myJSON = eval ("(" + JSON.stringify({timetable: timetable}) + ")");
+
+    /*var table = myJSON['timetable'];
+    var tableA = [],
+        tableB = [];
+
+    for(var object in table){
+        var temp = table[object];
+
+        if(temp.group != null && temp.group.match(/A/)){
+            tableA.push(temp);
+        }else if(temp.group != null && temp.group.match(/B/)){
+            tableB.push(temp);
+        }
+    }
+
+    console.log(tableA);
+    console.log(tableB);*/
 
      jsonfile.writeFile(file, myJSON, function(err) {
      console.log(err);

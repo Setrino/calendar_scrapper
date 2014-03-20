@@ -2,7 +2,7 @@ function DropDown(el) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
     this.opts = this.dd.find('ul.dropdown > li');
-    this.firstText = this.dd.find('ul.dropdown > li:first-child').text();
+    this.firstText = this.dd.find('ul.dropdown > li:last-child').text();
     this.val = '';
     this.index = -1;
     this.initEvents();
@@ -21,7 +21,8 @@ DropDown.prototype = {
             obj.val = opt.text();
             obj.index = opt.index();
             obj.placeholder.text(obj.val);
-            new jsonEvents(function(value) { json.getCal().setJSON(value); }, requestFilename(obj.val));
+            console.log();
+            new jsonEvents(function(value) { console.log(value); json.getCal().setJSON(value); }, requestFilename(obj.placeholder.text()));
         });
 
         $('.json_file').on('click', function(){
@@ -75,14 +76,14 @@ DropDown.prototype = {
                 }
 
                 function updateGroup(clicked, other){
-                    clicked.toggleClass("line-through");
-                    if(clicked.is(".line-through")){
-                        cal.excludeGroup(updateMonthYear, (clicked.html()).substr(5, 2));
+                    other.toggleClass("line-through");
+                    if(other.is(".line-through")){
+                        cal.excludeGroup(updateMonthYear, (other.html()).substr(5, 2));
                     }else{
                         cal.excludeGroup(updateMonthYear);
                     }
-                    if(other.is(".line-through")){
-                        other.removeClass("line-through");
+                    if(clicked.is(".line-through")){
+                        clicked.removeClass("line-through");
                     }
                 }
 

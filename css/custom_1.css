@@ -260,7 +260,7 @@ html, body{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    z-index: 5;
+    z-index: 4;
 }
 
 .groupA, .groupB{

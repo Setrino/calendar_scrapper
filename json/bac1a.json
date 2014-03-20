@@ -8,7 +8,7 @@
       "location": "Anthropole/1031",
       "group": "groupe A",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "D.Rohner",
       "details": null
     },
@@ -20,7 +20,7 @@
       "location": "Anthropole/1031",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "R.Bichsel",
       "details": null
     },
@@ -32,7 +32,19 @@
       "location": "Anthropole/1031",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
+      "lecturer": "V.Chavez",
+      "details": "A de 17h à 18h - B de 18h à 19h"
+    },
+    {
+      "day": "Monday",
+      "time_start": "17:15",
+      "time_end": "19:00",
+      "lecture_name": "Statistique I",
+      "location": "Internef/263",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "bac1a",
       "lecturer": "V.Chavez",
       "details": "A de 17h à 18h - B de 18h à 19h"
     },
@@ -44,7 +56,7 @@
       "location": "Amphipôle/B",
       "group": "groupe A",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "F.Dufresne",
       "details": null
     },
@@ -56,7 +68,7 @@
       "location": "Géopolis/2144",
       "group": "Groupe C",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "D.Nilles",
       "details": null
     },
@@ -68,7 +80,7 @@
       "location": "Amphipôle/D",
       "group": "groupe A",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "A.Schatt",
       "details": null
     },
@@ -80,7 +92,7 @@
       "location": "Anthropole/1031",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "V.Chavez",
       "details": null
     },
@@ -92,7 +104,7 @@
       "location": "Amphipôle/D",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "A.Schatt",
       "details": null
     },
@@ -104,7 +116,7 @@
       "location": "Anthropole/1129",
       "group": "groupe A",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "V.Chavez",
       "details": null
     },
@@ -116,7 +128,7 @@
       "location": "Amphipôle/D",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "C.Darbellay",
       "details": null
     },
@@ -128,7 +140,7 @@
       "location": "Amphipôle/D",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "A.Schatt",
       "details": null
     },
@@ -140,7 +152,7 @@
       "location": "Amphimax/350",
       "group": null,
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "G.Mustaki",
       "details": null
     },
@@ -152,7 +164,7 @@
       "location": "Amphipôle/D",
       "group": "groupe A",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "A.Schatt",
       "details": null
     },
@@ -164,21 +176,9 @@
       "location": "Amphipôle/C",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "A.Schatt",
       "details": "Exercices"
-    },
-    {
-      "day": "Thursday",
-      "time_start": "08:00",
-      "time_end": "10:00",
-      "lecture_name": "Mathématiques I",
-      "location": "Amphipôle/B",
-      "group": "groupe A",
-      "period": "Automne",
-      "year": "Bachelor 1 Automne",
-      "lecturer": "F.Dufresne",
-      "details": null
     },
     {
       "day": "Thursday",
@@ -188,8 +188,20 @@
       "location": "Amphipôle/A",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "C.Darbellay",
+      "details": null
+    },
+    {
+      "day": "Thursday",
+      "time_start": "08:00",
+      "time_end": "10:00",
+      "lecture_name": "Mathématiques I",
+      "location": "Amphipôle/B",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "bac1a",
+      "lecturer": "F.Dufresne",
       "details": null
     },
     {
@@ -200,7 +212,7 @@
       "location": "Internef/129",
       "group": "Groupe C",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "D.Nilles",
       "details": null
     },
@@ -212,7 +224,7 @@
       "location": "Anthropole/1031",
       "group": null,
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "D.Rohner",
       "details": "Exercices - première séance le 03.10.2013"
     },
@@ -224,7 +236,7 @@
       "location": "Internef/263",
       "group": null,
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "D.Rohner",
       "details": "Exercices - première séance le 03.10.2013"
     },
@@ -236,7 +248,19 @@
       "location": "Internef/273",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
+      "lecturer": "V.Chavez",
+      "details": "Exercices"
+    },
+    {
+      "day": "Thursday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "Statistique I",
+      "location": "Anthropole/1031",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "bac1a",
       "lecturer": "V.Chavez",
       "details": "Exercices"
     },
@@ -248,7 +272,7 @@
       "location": "Amphipôle/A",
       "group": "groupe A",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "A.Schatt",
       "details": "Exercices"
     },
@@ -260,7 +284,19 @@
       "location": "Anthropole/1031",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
+      "lecturer": "T.Estier",
+      "details": null
+    },
+    {
+      "day": "Friday",
+      "time_start": "08:30",
+      "time_end": "10:00",
+      "lecture_name": "Modèles informatiques",
+      "location": "Internef/263",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "bac1a",
       "lecturer": "T.Estier",
       "details": null
     },
@@ -272,7 +308,19 @@
       "location": "Anthropole/1031",
       "group": "groupe B",
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
+      "lecturer": "T.Estier",
+      "details": "Exercices"
+    },
+    {
+      "day": "Friday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "Modèles informatiques",
+      "location": "Internef/263",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "bac1a",
       "lecturer": "T.Estier",
       "details": "Exercices"
     },
@@ -284,7 +332,7 @@
       "location": "Anthropole/1031",
       "group": null,
       "period": "Automne",
-      "year": "Bachelor 1 Automne",
+      "year": "bac1a",
       "lecturer": "D.Rohner",
       "details": "Exercices - première séance le 04.10.2013 - séance du 13.12 Amphipole/D"
     }
