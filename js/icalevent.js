@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var event = new iCalEvent({
     offset: new Date().getTimezoneOffset(),
-    start: '2014-02-25T02:00:00-05:00',
+    start: '2014-03-20T02:00:00-05:00',
     summary: 'Priestly Duties',
     description: 'Home flu visit.',
     location: 'Casa',
@@ -14,13 +14,13 @@ var event = new iCalEvent({
     },
     repeat: {
         frequency: 'WEEKLY',
-        until: '2014-03-05T02:00:00-05:00'
+        until: '2014-05-30T02:00:00-05:00'
     }
 });
 
 var event2 = new iCalEvent({
     offset: new Date().getTimezoneOffset(),
-    start: '2014-02-25T03:00:00-05:00',
+    start: '2014-03-29T03:00:00-05:00',
     end: '2014-02-25T03:30:00-05:00',
     summary: 'Another Thing',
     description: 'Lecture will start',

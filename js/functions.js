@@ -7,6 +7,7 @@ function DropDown(el) {
     this.index = -1;
     this.initEvents();
 }
+
 DropDown.prototype = {
     initEvents : function() {
         var obj = this;
@@ -30,7 +31,12 @@ DropDown.prototype = {
         });
 
         $('.ical_file').on('click', function(){
-            window.location = 'ical/' + requestFilename(obj.placeholder.text()) + '.ics';
+
+            if($( '#groups .groupA' ).is(".line-through")){
+                window.location = 'ical/' + requestFilename(obj.placeholder.text()) + '_groupeB.ics';
+            }else if($( '#groups .groupB' ).is(".line-through")){
+                window.location = 'ical/' + requestFilename(obj.placeholder.text()) + '_groupeA.ics';
+            }
         });
 
         obj.placeholder.text(obj.firstText);
@@ -76,6 +82,7 @@ DropDown.prototype = {
                 }
 
                 function updateGroup(clicked, other){
+                    setCookie("group",(clicked.html()).substr(6, 1), 60);
                     other.toggleClass("line-through");
                     if(other.is(".line-through")){
                         cal.excludeGroup(updateMonthYear, (other.html()).substr(5, 2));
@@ -165,4 +172,51 @@ function hideEvents() {
 function requestFilename(text){
 
     return 'bac' + text.substr(9, 1) + text.substr(11, 1).toLowerCase();
+}
+
+function getCookie(c_name)
+{
+    var c_value = document.cookie;
+    var c_start = c_value.indexOf(" " + c_name + "=");
+    if (c_start == -1)
+    {
+        c_start = c_value.indexOf(c_name + "=");
+    }
+    if (c_start == -1)
+    {
+        c_value = null;
+    }
+    else
+    {
+        c_start = c_value.indexOf("=", c_start) + 1;
+        var c_end = c_value.indexOf(";", c_start);
+        if (c_end == -1)
+        {
+            c_end = c_value.length;
+        }
+        c_value = decodeURI(c_value.substring(c_start,c_end));
+    }
+    return c_value;
+}
+
+function setCookie(c_name,value,exdays)
+{
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + 60);
+    var c_value= encodeURI(value) + ((exdays == null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie = c_name + "=" + c_value;
+}
+
+function checkCookie()
+{
+
+    var group = getCookie("group");
+    if (group != null && group != "") {
+
+        if(group == 'A'){
+            $( '#groups .groupA' );
+        }else if(group == 'B'){
+            $( '#groups .groupB' );
+        }
+    }
 }

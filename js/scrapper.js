@@ -4,19 +4,28 @@ var jsonfile = require('jsonfile');
 var async = require('async');
 var file = '';
 var timetable = [];
-var timetableS = '';    //String of events
+var iCalEvent = require('icalevent');
+var fs = require('fs');
 
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 courses = {
-    //'bac1a': 10113,
-    'bac1p' : 10114
+    'bac1a': 10113
+    //'bac1p' : 10114
 };
+dates = {
+    'Monday'    : '2014-03-17',
+    'Tuesday'   : '2014-03-18',
+    'Wednesday' : '2014-03-19',
+    'Thursday'  : '2014-03-20',
+    'Friday'    : '2014-03-21'
+
+}
 
 var courseIds = Object.keys(courses);
 
 function perCourse(courseId, callback) {
     var course = courses[courseId];
-    file = '../json/' + courseId + '.json';
+    file = courseId;
     var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=' + course;
 
     request(url, (function(course) { return function(err, resp, body) {
@@ -38,7 +47,8 @@ function perCourse(courseId, callback) {
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    writeToJSON();
+    //writeToJSON();
+    writeToICAL();
 });
 
 
@@ -257,24 +267,64 @@ function writeToJSON(){
 
     var myJSON = eval ("(" + JSON.stringify({timetable: timetable}) + ")");
 
-    /*var table = myJSON['timetable'];
-    var tableA = [],
-        tableB = [];
-
-    for(var object in table){
-        var temp = table[object];
-
-        if(temp.group != null && temp.group.match(/A/)){
-            tableA.push(temp);
-        }else if(temp.group != null && temp.group.match(/B/)){
-            tableB.push(temp);
-        }
-    }
-
-    console.log(tableA);
-    console.log(tableB);*/
-
-     jsonfile.writeFile(file, myJSON, function(err) {
+     jsonfile.writeFile('../json/' + file + '.json', myJSON, function(err) {
      console.log(err);
      });
+}
+
+function writeToICAL(){
+
+    var myJSON = (eval ("(" + JSON.stringify({timetable: timetable}) + ")"))['timetable'],
+        icalEvents = [];
+
+    for(object in myJSON){
+        var lecture = myJSON[object];
+
+        if(lecture.group != null && lecture.group.match(/A/)){
+            addEvent(lecture);
+        }else if(lecture.group == null){
+            addEvent(lecture);
+    }
+
+    fs.writeFile('../ical/' + file + '_groupeA.ics', wrapString(icalEvents.join()), function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            //console.log("The file was saved!");
+        }
+    });
+}
+
+    function addEvent(lecture){
+        var event = new iCalEvent({
+            offset: 0,
+            start: dates[lecture.day] + 'T' + lecture.time_start,
+            end: dates[lecture.day] + 'T' + lecture.time_end,
+            summary: lecture.lecture_name,
+            description: lecture.details,
+            location: lecture.location,
+            organizer: {
+                name: lecture.lecturer
+            },
+            repeat: {
+                frequency: 'WEEKLY',
+                until: '20140530T225959Z'
+            }
+        });
+        icalEvents.push(event.toString());
+    }
+}
+
+//Wraps string with iCal
+function wrapString(string){
+
+    var result = '';
+
+    result += 'BEGIN:VCALENDAR\r\n';
+    result += 'VERSION:2.0\r\n';
+    result += 'PRODID:' + this.id + '\r\n';
+    result += string;
+    result += 'END:VCALENDAR\r\n';
+
+    return result;
 }
