@@ -180,7 +180,7 @@
                                         dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
                                             "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') +
                                                 lecture.location + "</br>"
-                                        + lecture.lecture + "</br></br>";
+                                        + lecture.lecturer + "</br></br>";
                                     }else if(lecture.group == null){
                                         dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
                                             "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') + lecture.location + "</br>" +
