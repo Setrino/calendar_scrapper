@@ -173,28 +173,22 @@
                         for(var object in this.jsonEvents.timetable){
 
                             var lecture = this.jsonEvents.timetable[object];
+                            var tempData = lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
+                                    "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') +
+                                        lecture.location + "</br>" + lecture.lecturer + "</br></br>";
 
                             if(lecture.day == this.options.weeks[currentDay]){
                                 if(group){
                                     if(lecture.group != null && lecture.group.substr(6, 2) != group && lecture.group.substr(7, 1) != 'C'){
-                                        dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
-                                            "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') +
-                                                lecture.location + "</br>"
-                                        + lecture.lecturer + "</br></br>";
+                                        dayData += tempData;
                                     }else if(lecture.group == null){
-                                        dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
-                                            "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') + lecture.location + "</br>" +
-                                            lecture.lecturer + "</br></br>";
+                                        dayData += tempData;
                                     }
                                 }else{
                                     if(lecture.group != null && lecture.group.substr(7, 1) != 'C'){
-                                    dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
-                                        "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') + lecture.location + "</br>"
-                                        + lecture.lecturer + "</br></br>";
+                                    dayData += tempData;
                                     }else if(lecture.group == null){
-                                    dayData += lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
-                                        "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') + lecture.location + "</br>"
-                                        + lecture.lecturer + "</br></br>";
+                                    dayData += tempData;
                                     }
                                 }
                             }
