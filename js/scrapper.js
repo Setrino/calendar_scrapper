@@ -8,10 +8,13 @@ var iCalEvent = require('icalevent');
 var fs = require('fs');
 
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
 courses = {
-    'bac1a': 10113
-    //'bac1p' : 10114
+    //'bac1aT': 10189
+    'bac1' : 1  //exams
+    //'bac1p' : 10190
 };
+
 dates = {
     'Monday'    : '2014-03-17',
     'Tuesday'   : '2014-03-18',
@@ -26,14 +29,17 @@ var courseIds = Object.keys(courses);
 function perCourse(courseId, callback) {
     var course = courses[courseId];
     file = courseId;
-    var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=' + course;
+    //var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=' + course;
+    var url = 'http://hec.unil.ch/hec/exatables/list_seas_de_exa?bloc_id=' + course;    // exams
 
     request(url, (function(course) { return function(err, resp, body) {
         $ = cheerio.load(body);
 
         $('#content-core .list').each(function(day){
 
-            event = $(this).text().trim().replace(/\s\s+/g, ' ').split(" ");
+            var event = $(this).text().trim().replace(/\s\s+/g, ' ').split(" ");
+
+            console.log(event);
 
             if(event.length > 1){
 
@@ -47,8 +53,8 @@ function perCourse(courseId, callback) {
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    //writeToJSON();
-    writeToICAL();
+    writeToJSON();
+    //writeToICAL();
 });
 
 
