@@ -32,10 +32,12 @@ DropDown.prototype = {
 
         $('.ical_file').on('click', function(){
 
-            if($( '#groups .groupA' ).is(".line-through")){
+            if($( '#groups .groupA' ).is(".line-through") && $( '#groups .groupC' ).is(".line-through")){
                 window.location = 'ical/' + requestFilename(obj.placeholder.text()) + '_groupeB.ics';
-            }else if($( '#groups .groupB' ).is(".line-through")){
+            }else if($( '#groups .groupB' ).is(".line-through") && $( '#groups .groupC' ).is(".line-through")){
                 window.location = 'ical/' + requestFilename(obj.placeholder.text()) + '_groupeA.ics';
+            }else if($( '#groups .groupB' ).is(".line-through") && $( '#groups .groupA' ).is(".line-through")){
+                window.location = 'ical/' + requestFilename(obj.placeholder.text()) + '_groupeC.ics';
             }
         });
 
@@ -70,10 +72,13 @@ DropDown.prototype = {
                     cal.gotoNow( updateMonthYear );
                 } );
                 $( '#groups .groupA' ).on( 'click', function() {
-                    updateGroup($(this), $( '#groups .groupB' ));
+                    updateGroup($(this), $('#groups .groupB'), $('#groups .groupC'));
                 } );
                 $( '#groups .groupB' ).on( 'click', function() {
-                    updateGroup($(this), $( '#groups .groupA' ));
+                    updateGroup($(this), $('#groups .groupC'), $('#groups .groupA'));
+                } );
+                $( '#groups .groupC' ).on( 'click', function() {
+                    updateGroup($(this), $('#groups .groupB'), $('#groups .groupA'));
                 } );
 
                 function updateMonthYear() {
@@ -81,20 +86,67 @@ DropDown.prototype = {
                     $year.html( cal.getYear() );
                 }
 
-                function updateGroup(clicked, other){
+                function removeClass(clicked, array){
+                    $(array).each(function(i, v){
+                        if($(v).html() != clicked.html()){
+                            $(v).removeClass("line-through");
+                        }
+                    });
+                }
+
+                function addClass(clicked, array){
+                    $(array).each(function(i, v){
+                        if($(v).html() != clicked.html()){
+                            $(v).addClass("line-through");
+                        }
+                    });
+                }
+
+                function checkClass(clicked, array){
+                    var temp = true;
+                    $(array).each(function(i, v){
+                        if($(v).html() != clicked.html()){
+                            if($(v).hasClass("line-through")){
+                                temp = temp && true;
+                            }else{
+                                temp = temp && false;
+                            }
+                        }
+                    });
+                    return temp;
+                }
+
+                function updateGroup(clicked, other, other2){
+                    var array = $($('#groups').children());
+                    if(!clicked.hasClass("line-through") && checkClass(clicked, array)){
+                        clicked.removeClass("line-through");
+                        removeClass(clicked, array);
+                        cal.excludeGroup(updateMonthYear);
+                    }
+                    else{
+                        var group2 = (other2) ? (other2.html()).substr(5, 2) : null;
+                        addClass(clicked, array);
+                        clicked.removeClass("line-through");
+                        cal.excludeGroup(updateMonthYear, (other.html()).substr(5, 2), group2);
+                    }
+                    /*
                     setCookie("group",(clicked.html()).substr(6, 1), 60);
                     other.toggleClass("line-through");
-                    if(other.is(".line-through")){
+                    other2.addClass("line-through");
+                    if(other.is(".line-through") && other2.toggleClass("line-through")){
                         cal.excludeGroup(updateMonthYear, (other.html()).substr(5, 2));
+                        cal.excludeGroup(updateMonthYear, (other2.html()).substr(5, 2));
                     }else{
                         cal.excludeGroup(updateMonthYear);
                     }
+
                     if(clicked.is(".line-through")){
                         clicked.removeClass("line-through");
                     }
+
                     if(!(clicked.is(".line-through") || other.is(".line-through"))){
                         setCookie("group","", 60);
-                    }
+                    }*/
                 }
 
                 json.setCal(cal);
@@ -222,6 +274,8 @@ function checkCookie(callback)
             callback($( '#groups .groupA' ), $( '#groups .groupB' ));
         }else if(group == 'B'){
             callback($( '#groups .groupB' ), $( '#groups .groupA' ));
+        }else if(group == 'C'){
+
         }
     }
 }

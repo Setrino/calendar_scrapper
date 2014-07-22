@@ -251,7 +251,7 @@ html, body{
 #groups{
 	position: relative;
 	height: 30px;
-	width: 160px;
+	width: 240px;
 	display: inline-block;
 	float: left;
     -webkit-touch-callout: none;
@@ -263,7 +263,7 @@ html, body{
     z-index: 4;
 }
 
-.groupA, .groupB{
+.groupA, .groupB, .groupC{
 	float: left;
 	width: auto;
 	font-size: 0.8em;
@@ -281,15 +281,15 @@ html, body{
 	width: auto;
 }
 
-.groupA:hover, .groupB:hover{
+.groupA:hover, .groupB:hover, .groupC:hover{
 	color: rgba(255,255,255,0.3);
 }
 
-.groupA{
+.groupA, .groupB{
 	border-right: 1px solid rgba(255,255,255,0.6);
 }
 
-.groupB{
+.groupC{
 }
 
 .fc-calendar {

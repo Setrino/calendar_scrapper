@@ -10,8 +10,9 @@ var fs = require('fs');
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 courses = {
-    //'bac1aT': 10189
-    'bac1' : 1  //exams
+    //'bac1a': 10394
+    'bac2a': 10364
+    //'bac1' : 1  //exams
     //'bac1p' : 10190
 };
 
@@ -30,7 +31,7 @@ function perCourse(courseId, callback) {
     var course = courses[courseId];
     file = courseId;
     //var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=' + course;
-    var url = 'http://hec.unil.ch/hec/exatables/list_seas_de_exa?bloc_id=' + course;    // exams
+    var url = 'http://hec.unil.ch/hec/timetables/snc_de_pub?pub_id=' + course;    // exams
 
     request(url, (function(course) { return function(err, resp, body) {
         $ = cheerio.load(body);
@@ -39,7 +40,7 @@ function perCourse(courseId, callback) {
 
             var event = $(this).text().trim().replace(/\s\s+/g, ' ').split(" ");
 
-            console.log(event);
+            //console.log(event);
 
             if(event.length > 1){
 
@@ -81,13 +82,14 @@ function Lecture(day, course, time, value){
 //callback - function
 
 function checkRoom(string){
-
-    return string.match(/Amphi|Inter|Anthr|Géop/i) && !string.match(/!!!/);
+    var temp = string.toLowerCase();
+    //console.log(temp);
+    return temp.match(/amphi|inter|anthr|géop/i) && !temp.match(/!!!/) && !temp.match(/!!/);
 }
 
 function checkLecturer(string){
 
-    return string.match(/[a-z]+\./i);
+    return string.match(/[a-z]+\./i) || string.match(/poste/i);
 }
 
 Lecture.prototype = {
@@ -161,17 +163,22 @@ function recursiveEvents(current, string, array, course, day, callback){
         }
 
         string = (string == '') ? string + array.shift() : string + ' ' + array.shift();
-        //console.log(string);
 
         if(string.match(/[a-z]+\.+[a-z]+\//i)){
 
         }
 
         if(checkRoom(string)){
-            //console.log(string);
             lectureT.setLocation(string);
             recursiveEvents(lectureT, '', array, course, day, callback);
-
+        }else if(string.match(/Semaine/)){
+            if(string.match(/8-14:/)){
+                string += ' ' + array.shift() + array.shift();
+                lectureT.setDetails(string);
+                recursiveEvents(lectureT, '', array, course, day, callback);
+            }else{
+                recursiveEvents(lectureT, string, array, course, day, callback);
+            }
             //Set time
         }else if(/\d/g.test(string) && /:/.test(string)){
 
@@ -194,7 +201,7 @@ function recursiveEvents(current, string, array, course, day, callback){
 
             lectureT.setPeriod(string);
             recursiveEvents(lectureT, '', array, course, day, callback);
-        }else if(string.match(/groupe/i)){
+        }else if(string.match(/groupe/i) && !string.match(/de/i)){
 
             if(string.length == 6){
                 string += ' ' + array.shift();
@@ -210,42 +217,60 @@ function recursiveEvents(current, string, array, course, day, callback){
             //Lecturer's name
         }else if(checkLecturer(string)){
 
-            if(string.match(/\.+\s+[a-z]/i) && array.length > 1 && checkLecturer(array[0])){
+            if(string.match(/poste/)){
+                if(string.match(/externe/)){
+                    lectureT.setLecturer(string);
+                    timetable.push(lectureT);
+                    recursiveEvents(null, '', array, course, day, callback);
+                }else{
+                    recursiveEvents(lectureT, string, array, course, day, callback);
+                }
+            }else if(string.match(/\.+\s+[a-z]/i) && array.length > 1 && checkLecturer(array[0])){
                 lectureT.setDetails(string);
                 recursiveEvents(lectureT, '', array, course, day, callback);
             }else if(string.match(/-/)){
                 recursiveEvents(lectureT, string, array, course, day, callback);
             }else{
-
-                lectureT.setLecturer(string);
-
-                if(lectureT.dublicate != null){
-                    var tempObject = {};
-                    for (var prop in lectureT) {
-                        tempObject[prop] = lectureT[prop];
+                if(string.match(/\.+/) && string.length < 6){
+                    recursiveEvents(lectureT, string, array, course, day, callback);
+                }else{
+                    lectureT.setLecturer(string);
+                    if(lectureT.dublicate != null){
+                        var tempObject = {};
+                        for (var prop in lectureT) {
+                            tempObject[prop] = lectureT[prop];
+                        }
+                        tempObject.location = lectureT.dublicate[0];
+                        tempObject.group = lectureT.dublicate[1];
+                        delete tempObject.dublicate;
+                        timetable.push(tempObject);
                     }
-                    tempObject.location = lectureT.dublicate[0];
-                    tempObject.group = lectureT.dublicate[1];
-                    delete tempObject.dublicate;
-                    timetable.push(tempObject);
+                    delete lectureT.dublicate;
+                    timetable.push(lectureT);
+                    recursiveEvents(null, '', array, course, day, callback);
                 }
-                delete lectureT.dublicate;
-                timetable.push(lectureT);
-                recursiveEvents(null, '', array, course, day, callback);
             }
-        }else if(string.match(/^[a-z0-9À-ÿ\-\ '!@#\$%\^\&*\)\(+=., ]+$/i)){
+        }else if(string.match(/Analyse/) && array[0].match(/macro/)){
 
-            if(array.length < 30){
+                recursiveEvents(lectureT, string, array, course, day, callback);
+        // Check Details
+        }else if(string.match(/^[a-z0-9àÀ-ÿ\-\ '!@#\$%\^\&*\)\(+=., ]+$/i)){
 
+            if(string.toLowerCase().match(/semaine/)){
+                //console.log(string);
             }
 
             if(string.match(/-/) && string.length == 1){
 
                 recursiveEvents(lectureT, '', array, course, day, callback);
+            }else if(string.match(/(!!)/) || string.match(/(!!!)/)){
+                recursiveEvents(lectureT, string, array, course, day, callback);
             }else if(array.length > 1 && checkRoom(array[0])){
+                //console.log(string + ' ' + array[0]);
                 if(checkLecturer(array[1])){
                     lectureT.setDetails(string + ' ' + array.shift());
                 }else{
+                    //console.log(string);
                     lectureT.setLecture_Name(string);
                 }
                 recursiveEvents(lectureT, '', array, course, day, callback);
@@ -262,8 +287,15 @@ function recursiveEvents(current, string, array, course, day, callback){
             }
         }else{
 
-            //callback();
-            //console.log(string);
+            if((string.match(/!!/) && array[0] == '!!') || string.match(/!!!/)){
+                recursiveEvents(lectureT, string, array, course, day, callback);
+            }else if(string.match(/Analyse/)){
+                lectureT.setLecture_Name(string);
+                recursiveEvents(lectureT, '', array, course, day, callback);
+            }else{
+                lectureT.setDetails(string);
+                recursiveEvents(lectureT, '', array, course, day, callback);
+            }
         }
 
     }

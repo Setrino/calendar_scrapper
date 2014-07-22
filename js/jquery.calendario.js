@@ -96,10 +96,10 @@
 
 		},
 		// Calendar logic based on http://jszen.blogspot.pt/2007/03/how-to-build-simple-calendar-with.html
-		_generateTemplate : function( callback, group ) {
+		_generateTemplate : function( callback, group, group2) {
 
 			var head = this._getHead(),
-				body = this._getBody(group),
+				body = this._getBody(group, group2),
 				rowClass;
 
 			switch( this.rowTotal ) {
@@ -135,7 +135,7 @@
 			return html;
 
 		},
-		_getBody : function(group) {
+		_getBody : function(group, group2) {
 
 			var d = new Date( this.year, this.month + 1, 0 ),
 				// number of days in the month
@@ -173,19 +173,20 @@
                         for(var object in this.jsonEvents.timetable){
 
                             var lecture = this.jsonEvents.timetable[object];
-                            var tempData = lecture.time_start + '-' + lecture.time_end + " " + lecture.lecture_name +
+                            var tempData = lecture.time_start + '-' + lecture.time_end + "</br>" + lecture.lecture_name +
                                     "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') +
                                         lecture.location + "</br>" + lecture.lecturer + "</br></br>";
 
                             if(lecture.day == this.options.weeks[currentDay]){
                                 if(group){
-                                    if(lecture.group != null && lecture.group.substr(6, 2) != group && lecture.group.substr(7, 1) != 'C'){
+                                    if(lecture.group != null && (lecture.group.substr(6, 2) != group)
+                                        && (lecture.group.substr(6, 2) != group2) && (lecture.group.substr(6, 2) != ' a')){
                                         dayData += tempData;
                                     }else if(lecture.group == null){
                                         dayData += tempData;
                                     }
                                 }else{
-                                    if(lecture.group != null && lecture.group.substr(7, 1) != 'C'){
+                                    if(lecture.group != null && (lecture.group.substr(6, 2) != ' a')){
                                     dayData += tempData;
                                     }else if(lecture.group == null){
                                     dayData += tempData;
@@ -356,8 +357,8 @@
 		gotoNextYear : function( callback ) {
 			this._move( 'year', 'next', callback );
 		},
-        excludeGroup : function( callback, group ) {
-            this._generateTemplate( callback, group );
+        excludeGroup : function( callback, group, group2) {
+            this._generateTemplate( callback, group, group2);
         }
 
 	};
