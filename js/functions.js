@@ -22,8 +22,7 @@ DropDown.prototype = {
             obj.val = opt.text();
             obj.index = opt.index();
             obj.placeholder.text(obj.val);
-            console.log();
-            new jsonEvents(function(value) { console.log(value); json.getCal().setJSON(value); }, requestFilename(obj.placeholder.text()));
+            new jsonEvents(function(value) { json.getCal().setJSON(value); }, requestFilename(obj.placeholder.text()));
         });
 
         $('.json_file').on('click', function(){
@@ -49,7 +48,6 @@ DropDown.prototype = {
                         onDayClick : function( $el, $contentEl, dateProperties ) {
 
                             for( var key in dateProperties ) {
-                                //console.log( key + ' = ' + dateProperties[ key ] );
                             }
                             if( $contentEl.length > 0 && ($(window).width() > 880 && $(window).height() > 450)) {
                                 showEvents( $contentEl, dateProperties );
@@ -120,33 +118,17 @@ DropDown.prototype = {
                     var array = $($('#groups').children());
                     if(!clicked.hasClass("line-through") && checkClass(clicked, array)){
                         clicked.removeClass("line-through");
+                        setCookie("group","", 60);
                         removeClass(clicked, array);
                         cal.excludeGroup(updateMonthYear);
                     }
                     else{
                         var group2 = (other2) ? (other2.html()).substr(5, 2) : null;
+                        setCookie("group",(clicked.html()).substr(6, 1), 60);
                         addClass(clicked, array);
                         clicked.removeClass("line-through");
                         cal.excludeGroup(updateMonthYear, (other.html()).substr(5, 2), group2);
                     }
-                    /*
-                    setCookie("group",(clicked.html()).substr(6, 1), 60);
-                    other.toggleClass("line-through");
-                    other2.addClass("line-through");
-                    if(other.is(".line-through") && other2.toggleClass("line-through")){
-                        cal.excludeGroup(updateMonthYear, (other.html()).substr(5, 2));
-                        cal.excludeGroup(updateMonthYear, (other2.html()).substr(5, 2));
-                    }else{
-                        cal.excludeGroup(updateMonthYear);
-                    }
-
-                    if(clicked.is(".line-through")){
-                        clicked.removeClass("line-through");
-                    }
-
-                    if(!(clicked.is(".line-through") || other.is(".line-through"))){
-                        setCookie("group","", 60);
-                    }*/
                 }
 
                 json.setCal(cal);

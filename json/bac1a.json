@@ -65,11 +65,11 @@
       "time_start": "08:00",
       "time_end": "10:00",
       "lecture_name": "Mathématiques I",
-      "location": "Amphipôle/319",
-      "group": "Groupe avancé",
+      "location": "Amphipôle/B",
+      "group": "groupe B",
       "period": "Automne",
       "year": "bac1a",
-      "lecturer": "D.Nilles",
+      "lecturer": "F.Dufresne",
       "details": null
     },
     {
@@ -77,11 +77,11 @@
       "time_start": "08:00",
       "time_end": "10:00",
       "lecture_name": "Mathématiques I",
-      "location": "Amphipôle/B",
-      "group": "groupe B",
+      "location": "Amphipôle/319",
+      "group": "Groupe avancé",
       "period": "Automne",
       "year": "bac1a",
-      "lecturer": "F.Dufresne",
+      "lecturer": "D.Nilles",
       "details": null
     },
     {
@@ -389,11 +389,11 @@
       "time_start": "08:00",
       "time_end": "10:00",
       "lecture_name": "Modèles informatiques",
-      "location": "Amphipôle/D",
-      "group": "groupe B",
+      "location": "Amphipôle/A",
+      "group": "groupe A",
       "period": "Automne",
       "year": "bac1a",
-      "lecturer": "G.Maksay",
+      "lecturer": "T.Estier",
       "details": null
     },
     {
@@ -401,11 +401,11 @@
       "time_start": "08:00",
       "time_end": "10:00",
       "lecture_name": "Modèles informatiques",
-      "location": "Amphipôle/A",
-      "group": "groupe A",
+      "location": "Amphipôle/D",
+      "group": "groupe B",
       "period": "Automne",
       "year": "bac1a",
-      "lecturer": "T.Estier",
+      "lecturer": "G.Maksay",
       "details": null
     },
     {

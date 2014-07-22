@@ -285,11 +285,12 @@ html, body{
 	color: rgba(255,255,255,0.3);
 }
 
-.groupA, .groupB{
+.groupA{
 	border-right: 1px solid rgba(255,255,255,0.6);
 }
 
 .groupC{
+    border-left: 1px solid rgba(255,255,255,0.6);
 }
 
 .fc-calendar {

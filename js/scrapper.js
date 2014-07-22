@@ -10,18 +10,18 @@ var fs = require('fs');
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 courses = {
-    //'bac1a': 10394
-    'bac2a': 10364
+    'bac1a': 10394
+    //'bac2a': 10364
     //'bac1' : 1  //exams
     //'bac1p' : 10190
 };
 
 dates = {
-    'Monday'    : '2014-03-17',
-    'Tuesday'   : '2014-03-18',
-    'Wednesday' : '2014-03-19',
-    'Thursday'  : '2014-03-20',
-    'Friday'    : '2014-03-21'
+    'Monday'    : '2014-09-15',
+    'Tuesday'   : '2014-09-16',
+    'Wednesday' : '2014-09-17',
+    'Thursday'  : '2014-09-18',
+    'Friday'    : '2014-09-19'
 
 }
 
@@ -40,13 +40,10 @@ function perCourse(courseId, callback) {
 
             var event = $(this).text().trim().replace(/\s\s+/g, ' ').split(" ");
 
-            //console.log(event);
-
             if(event.length > 1){
 
                 recursiveEvents(null, '', event, course, days[day], function(){
 
-                    //writeToJSON();
                 });}
         }), callback();
     }})(courseId));
@@ -54,8 +51,10 @@ function perCourse(courseId, callback) {
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    writeToJSON();
-    //writeToICAL();
+    //writeToJSON();
+    writeToICAL();
+    //writeToICAL('B');
+    //writeToICAL('C');
 });
 
 
@@ -83,7 +82,6 @@ function Lecture(day, course, time, value){
 
 function checkRoom(string){
     var temp = string.toLowerCase();
-    //console.log(temp);
     return temp.match(/amphi|inter|anthr|géop/i) && !temp.match(/!!!/) && !temp.match(/!!/);
 }
 
@@ -310,21 +308,22 @@ function writeToJSON(){
      });
 }
 
-function writeToICAL(){
+function writeToICAL(groupL){
 
     var myJSON = (eval ("(" + JSON.stringify({timetable: timetable}) + ")"))['timetable'],
         icalEvents = [];
 
-    for(object in myJSON){
+    for(var object in myJSON){
         var lecture = myJSON[object];
+        var regEx = new RegExp(groupL, 'g');
 
-        if(lecture.group != null && lecture.group.match(/A/)){
+        if(lecture.group != null && lecture.group.match(regEx)){
             addEvent(lecture);
-        }else if(lecture.group == null){
+        }else if(!lecture.group){
             addEvent(lecture);
-    }
+        }
 
-    fs.writeFile('../ical/' + file + '_groupeA.ics', wrapString(icalEvents.join()), function(err) {
+    fs.writeFile('../ical/' + file + '_groupe' + ((groupL) || '') + '.ics', wrapString(icalEvents.join()), function(err) {
         if(err) {
             console.log(err);
         } else {
@@ -340,13 +339,13 @@ function writeToICAL(){
             end: dates[lecture.day] + 'T' + lecture.time_end,
             summary: lecture.lecture_name,
             description: lecture.details,
-            location: lecture.location,
+            location: ((lecture.group) ? lecture.group.substr(7, 1) + ' | ' : '') + lecture.location,
             organizer: {
                 name: lecture.lecturer
             },
             repeat: {
                 frequency: 'WEEKLY',
-                until: '20140530T225959Z'
+                until: '20141219T225959Z'
             }
         });
         icalEvents.push(event.toString());

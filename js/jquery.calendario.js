@@ -59,7 +59,7 @@
 			this.year = ( isNaN( this.options.year ) || this.options.year == null) ? this.today.getFullYear() : this.options.year;
 			this.caldata = this.options.caldata || {};
             this.jsonEvents = this.options.jsonEvents;
-			this._generateTemplate();
+            this._generateTemplate();
 			this._initEvents();
 		},
 		_initEvents : function() {
@@ -140,7 +140,8 @@
 			var d = new Date( this.year, this.month + 1, 0 ),
 				// number of days in the month
 				monthLength = d.getDate(),
-				firstDay = new Date( this.year, this.month, 1 );
+				firstDay = new Date( this.year, this.month, 1),
+                thirdGroup = true;
 
 			// day of the week
 			this.startingDay = firstDay.getDay();
@@ -169,10 +170,13 @@
 						var currentDay =  j + this.options.startIn > 6 ? j + this.options.startIn - 6 - 1 : j + this.options.startIn,
                             //strdate = ( this.month + 1 < 10 ? '0' + ( this.month + 1 ) : this.month + 1 ) + '-' + ( day < 10 ? '0' + day : day ) + '-' + this.year,
 							dayData = '';
-                        //console.log(currentDay + " " + this.options.weekabbrs[currentDay]);
                         for(var object in this.jsonEvents.timetable){
-
                             var lecture = this.jsonEvents.timetable[object];
+                            if(lecture.group != null && lecture.group.substr(7, 1) == 'C'){
+                                thirdGroup = true;
+                            }else{
+                                thirdGroup = false;
+                            }
                             var tempData = lecture.time_start + '-' + lecture.time_end + "</br>" + lecture.lecture_name +
                                     "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') +
                                         lecture.location + "</br>" + lecture.lecturer + "</br></br>";
@@ -232,6 +236,12 @@
 
 			}
 			html += '</div></div>';
+
+            if(thirdGroup){
+                $('.groupC').css('display', 'block');
+            }else{
+                $('.groupC').css('display', 'none');
+            }
 
 			return html;
 
@@ -320,7 +330,7 @@
 		setData : function( caldata ) {
 
 			caldata = caldata || {};
-			$.extend( this.caldata, caldata );
+			$.extend( this.caldata, caldata);
 			this._generateTemplate();
 
 		},
