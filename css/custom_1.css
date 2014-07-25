@@ -25,6 +25,10 @@ html, body{
     overflow-x: hidden;
 }
 
+.download_links_wrapper{
+    width: 100%;
+}
+
 .download_links{
 	display: inline;
 	float: right;
@@ -35,7 +39,9 @@ html, body{
 	letter-spacing: 4px;
 	color: #333;
 	padding: 0.5em 0.5em 0.5em 0.5em;
-	margin-right: 1.5em;
+	position: absolute;
+	right: 21px;
+	bottom: 41px;
 }
 
 .download_links a:hover{
@@ -96,13 +102,12 @@ html, body{
 }
 
 .custom-header h3 {
-	width: 410px;
+	width: 320px;
 	color: #ddd;
 	color: rgba(255,255,255,0.6);
 	font-weight: 300;
 	line-height: 30px;
-	text-align: right;
-	margin-left: 15px;
+	text-align: left;
     float: right;
 }
 
@@ -426,24 +431,17 @@ html, body{
     text-decoration: line-through;
 }
 
-@media screen and (max-width: 1152px) , screen and (max-height: 450px) {
+@media screen and (max-width: 1126px) , screen and (max-height: 450px) {
 
-    .year-related{
-        position: relative;
-        width: 380px;
-        float: left;
-        right: 307px;
-    }
+	.fc-calendar-container{
+		top: 100px;
+		
+	}
 
-    .custom-header h2{
-        position: relative;
-        bottom: 40px;
-    }
-
-    .custom-header h3{
-        position: relative;
-        bottom: 30px;
-    }
+	.custom-header h3{
+		float: left;
+		padding-top: 15px;
+	}
 }
 
 @media screen and (max-width: 880px) , screen and (max-height: 450px) {
@@ -479,16 +477,28 @@ html, body{
 
 	.custom-header h2,
 	.custom-header h3 {
-		float: none;
+		float: left;
 		text-align: left;
 		margin-left: 0px;
         bottom: 0px;
+        padding-top: 0px;
 	}
 
 	.custom-header h3 {
 		padding-left: 5px;
 
 	}
+
+	.year-related{
+		float: left;
+		width: 100%;
+	}
+
+    .download_links{
+    	float: left;
+    	position: initial;
+    	margin-top: 10px;
+    }
 
 	.custom-header nav{
 	    width: 200px;
@@ -498,8 +508,7 @@ html, body{
 	}
 
 	#custom-inner > div.custom-header.clearfix > h3{
-		width: 350px;
-        padding-right: 100px;
+		width: 100%;
 	}
 
 	.custom-content-reveal {
@@ -609,6 +618,6 @@ html, body{
 
     #groups{
         margin-top: 10px;
-        width: 300px;
+        width: 100%;
     }
 }
