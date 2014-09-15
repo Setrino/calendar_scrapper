@@ -432,6 +432,12 @@ html, body{
     text-decoration: line-through;
 }
 
+#calendar > div > div.fc-body > div:nth-child(3) > div.fc-today.fc-content > div > span{
+    white-space: normal;
+    overflow: auto;
+    text-overflow: initial;
+}
+
 @media screen and (max-width: 1208px){
 
     .custom-header h3{
