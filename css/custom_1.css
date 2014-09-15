@@ -102,13 +102,14 @@ html, body{
 }
 
 .custom-header h3 {
-	width: 320px;
+	width: 400px;
 	color: #ddd;
 	color: rgba(255,255,255,0.6);
 	font-weight: 300;
 	line-height: 30px;
 	text-align: left;
     float: right;
+    top: 0px;
 }
 
 .custom-header nav {
@@ -431,6 +432,14 @@ html, body{
     text-decoration: line-through;
 }
 
+@media screen and (max-width: 1208px){
+
+    .custom-header h3{
+        position: relative;
+        top: -30px;
+    }
+}
+
 @media screen and (max-width: 1126px) , screen and (max-height: 450px) {
 
 	.fc-calendar-container{
@@ -441,6 +450,7 @@ html, body{
 	.custom-header h3{
 		float: left;
 		padding-top: 15px;
+        top: 0px;
 	}
 }
 
@@ -486,6 +496,7 @@ html, body{
 
 	.custom-header h3 {
 		padding-left: 5px;
+        top: 0px;
 
 	}
 
