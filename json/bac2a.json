@@ -9,8 +9,8 @@
       "group": null,
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 15.09 de 10h15 à 12h00 !!! Y.Pigneur",
-      "details": null
+      "lecturer": "Y.Pigneur",
+      "details": "!!! 1er cours le 15.09 de 10h15 à 12h00 !!!"
     },
     {
       "day": "Monday",
@@ -44,8 +44,8 @@
       "location": "AMPHIMAX",
       "period": "S4, - Automne",
       "year": "bac2a",
-      "lecturer": "350 10h15 à 12h !!! L.Goette",
-      "details": "lundi :"
+      "lecturer": "L.Goette",
+      "details": "lundi : 350 10h15 à 12h !!!"
     },
     {
       "day": "Monday",
@@ -56,8 +56,8 @@
       "group": "Groupes du",
       "period": "S4, - Automne",
       "year": "bac2a",
-      "lecturer": "350 10h15 à 12h !!! L.Goette",
-      "details": "lundi :"
+      "lecturer": "L.Goette",
+      "details": "lundi : 350 10h15 à 12h !!!"
     },
     {
       "day": "Tuesday",
@@ -68,8 +68,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 23.09 !!! poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 23.09 !!!",
       "dublicate": [
         "Anthropole/1018"
       ]
@@ -83,8 +83,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 23.09 !!! Salles à confirmer poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 23.09 !!! Salles à confirmer",
       "dublicate": null
     },
     {
@@ -95,8 +95,8 @@
       "location": "Amphimax/412",
       "period": "S8, - Automne",
       "year": "bac2a",
-      "lecturer": "1ère séance le 23.09.2014 !!! L.Goette",
-      "details": "mardi :"
+      "lecturer": "L.Goette",
+      "details": "mardi : 1ère séance le 23.09.2014 !!!"
     },
     {
       "day": "Tuesday",
@@ -107,8 +107,8 @@
       "group": "Groupes du",
       "period": "S8, - Automne",
       "year": "bac2a",
-      "lecturer": "1ère séance le 23.09.2014 !!! L.Goette",
-      "details": "mardi :"
+      "lecturer": "L.Goette",
+      "details": "mardi : 1ère séance le 23.09.2014 !!!"
     },
     {
       "day": "Tuesday",
@@ -131,8 +131,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 23.09 !!! poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 23.09 !!!",
       "dublicate": [
         "Anthropole/1018"
       ]
@@ -146,8 +146,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 23.09 !!! - Salles à confirmer poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 23.09 !!! - Salles à confirmer",
       "dublicate": null
     },
     {
@@ -159,8 +159,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 23.09 !!! poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 23.09 !!!",
       "dublicate": [
         "Anthropole/5136"
       ]
@@ -174,8 +174,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 23.09 !!! - Salles à confirmer poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 23.09 !!! - Salles à confirmer",
       "dublicate": [
         "Anthropole/5136"
       ]
@@ -213,8 +213,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 24.09 !!! poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 24.09 !!!",
       "dublicate": [
         "Anthropole/5093"
       ]
@@ -228,8 +228,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 24.09 !!! - Salles à confirmer poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 24.09 !!! - Salles à confirmer",
       "dublicate": null
     },
     {
@@ -289,8 +289,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 25.09 !!! poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 25.09 !!!",
       "dublicate": [
         "Anthropole/2055"
       ]
@@ -316,8 +316,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 25.09 !!! - Salles à confirmer poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 25.09 !!! - Salles à confirmer",
       "dublicate": null
     },
     {
@@ -328,8 +328,8 @@
       "location": "Anthropole/4021",
       "period": "S10 - Automne",
       "year": "bac2a",
-      "lecturer": "1ère séance le 25.09.2014 !!! L.Goette",
-      "details": "jeudi :"
+      "lecturer": "L.Goette",
+      "details": "jeudi : 1ère séance le 25.09.2014 !!!"
     },
     {
       "day": "Thursday",
@@ -340,8 +340,8 @@
       "group": "Groupes du",
       "period": "S10 - Automne",
       "year": "bac2a",
-      "lecturer": "1ère séance le 25.09.2014 !!! L.Goette",
-      "details": "jeudi :"
+      "lecturer": "L.Goette",
+      "details": "jeudi : 1ère séance le 25.09.2014 !!!"
     },
     {
       "day": "Thursday",
@@ -376,8 +376,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 25.09 !!! poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 25.09 !!!",
       "dublicate": [
         "Anthropole/1018"
       ]
@@ -391,8 +391,8 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "!!! 1er cours le 25.09 !!! - Salles à confirmer poste vacant/prof. externe",
-      "details": null,
+      "lecturer": "poste vacant/prof. externe",
+      "details": "!!! 1er cours le 25.09 !!! - Salles à confirmer",
       "dublicate": null
     },
     {
