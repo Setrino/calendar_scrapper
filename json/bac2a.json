@@ -9,7 +9,7 @@
       "group": null,
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "Y.Pigneur",
+      "lecturer": "!!! 1er cours le 15.09 de 10h15 à 12h00 !!! Y.Pigneur",
       "details": null
     },
     {
@@ -22,7 +22,7 @@
       "period": "Automne",
       "year": "bac2a",
       "lecturer": "A.van Ackere",
-      "details": "!!! Rattrapage : 17.09 et 24.09 AMPHIPÔLE A 13h15 à 15h !!!"
+      "details": "!!! Rattrapage du 22.09 (férié) : 17.09 : AMPHIPÔLE A 13h15 à 15h et 18.09 : ANTHROPOLE 1031 10h15 à 12h !!!"
     },
     {
       "day": "Monday",
@@ -41,11 +41,11 @@
       "time_start": "17:15",
       "time_end": "19:00",
       "lecture_name": "Statistique et économétrie I",
-      "location": "Anthropole/5060",
-      "period": "Automne",
+      "location": "AMPHIMAX",
+      "period": "S4, - Automne",
       "year": "bac2a",
-      "lecturer": "L.Goette",
-      "details": "Exercices"
+      "lecturer": "350 10h15 à 12h !!! L.Goette",
+      "details": "lundi :"
     },
     {
       "day": "Monday",
@@ -53,11 +53,11 @@
       "time_end": "19:00",
       "lecture_name": "Statistique et économétrie I",
       "location": "Anthropole/5081",
-      "group": null,
-      "period": "Automne",
+      "group": "Groupes du",
+      "period": "S4, - Automne",
       "year": "bac2a",
-      "lecturer": "L.Goette",
-      "details": "Exercices"
+      "lecturer": "350 10h15 à 12h !!! L.Goette",
+      "details": "lundi :"
     },
     {
       "day": "Tuesday",
@@ -68,7 +68,7 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
+      "lecturer": "!!! 1er cours le 23.09 !!! poste vacant/prof. externe",
       "details": null,
       "dublicate": [
         "Anthropole/1018"
@@ -78,13 +78,13 @@
       "day": "Tuesday",
       "time_start": "08:30",
       "time_end": "10:00",
-      "lecture_name": "English for Studying Economics",
+      "lecture_name": "English for Studying Economics (A)",
       "location": "Anthropole/5136",
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
-      "details": "Salles à confirmer",
+      "lecturer": "!!! 1er cours le 23.09 !!! Salles à confirmer poste vacant/prof. externe",
+      "details": null,
       "dublicate": null
     },
     {
@@ -92,11 +92,11 @@
       "time_start": "10:15",
       "time_end": "12:00",
       "lecture_name": "Statistique et économétrie I",
-      "location": "Internef/123",
-      "period": "Automne",
+      "location": "Amphimax/412",
+      "period": "S8, - Automne",
       "year": "bac2a",
-      "lecturer": "L.Goette",
-      "details": "Exercices"
+      "lecturer": "1ère séance le 23.09.2014 !!! L.Goette",
+      "details": "mardi :"
     },
     {
       "day": "Tuesday",
@@ -104,11 +104,11 @@
       "time_end": "12:00",
       "lecture_name": "Statistique et économétrie I",
       "location": "Anthropole/5081",
-      "group": null,
-      "period": "Automne",
+      "group": "Groupes du",
+      "period": "S8, - Automne",
       "year": "bac2a",
-      "lecturer": "L.Goette",
-      "details": "Exercices"
+      "lecturer": "1ère séance le 23.09.2014 !!! L.Goette",
+      "details": "mardi :"
     },
     {
       "day": "Tuesday",
@@ -131,7 +131,7 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
+      "lecturer": "!!! 1er cours le 23.09 !!! poste vacant/prof. externe",
       "details": null,
       "dublicate": [
         "Anthropole/1018"
@@ -141,49 +141,44 @@
       "day": "Tuesday",
       "time_start": "13:15",
       "time_end": "15:00",
-      "lecture_name": "English for Studying Economics",
+      "lecture_name": "English for Studying Economics (A)",
       "location": "Anthropole/4144",
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
-      "details": "Salles à confirmer",
+      "lecturer": "!!! 1er cours le 23.09 !!! - Salles à confirmer poste vacant/prof. externe",
+      "details": null,
       "dublicate": null
     },
     {
       "day": "Tuesday",
       "time_start": "17:15",
       "time_end": "19:00",
-      "lecture_name": "Comptes de groupe et contrôle externe",
-      "location": "Amphipôle/B",
+      "lecture_name": "Business English (A)",
+      "location": "Anthropole/5029",
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "Y.Darbellay",
-      "details": "Exercices"
+      "lecturer": "!!! 1er cours le 23.09 !!! poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/5136"
+      ]
     },
     {
       "day": "Tuesday",
       "time_start": "17:15",
       "time_end": "19:00",
-      "lecture_name": "Statistique et économétrie I",
-      "location": "Anthropole/5060",
+      "lecture_name": "English for Studying Economics (A)",
+      "location": "Anthropole/5029",
+      "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "L.Goette",
-      "details": "Exercices"
-    },
-    {
-      "day": "Tuesday",
-      "time_start": "17:15",
-      "time_end": "19:00",
-      "lecture_name": "Statistique et économétrie I",
-      "location": "Anthropole/5081",
-      "group": null,
-      "period": "Automne",
-      "year": "bac2a",
-      "lecturer": "L.Goette",
-      "details": "Exercices"
+      "lecturer": "!!! 1er cours le 23.09 !!! - Salles à confirmer poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/5136"
+      ]
     },
     {
       "day": "Wednesday",
@@ -214,11 +209,11 @@
       "time_start": "13:15",
       "time_end": "15:00",
       "lecture_name": "Business English (A)",
-      "location": "Anthropole/1015",
+      "location": "Anthropole/4129",
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
+      "lecturer": "!!! 1er cours le 24.09 !!! poste vacant/prof. externe",
       "details": null,
       "dublicate": [
         "Anthropole/5093"
@@ -228,13 +223,13 @@
       "day": "Wednesday",
       "time_start": "13:15",
       "time_end": "15:00",
-      "lecture_name": "English for Studying Economics",
-      "location": "Anthropole/1015",
+      "lecture_name": "English for Studying Economics (A)",
+      "location": "Anthropole/4129",
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
-      "details": "Salles à confirmer",
+      "lecturer": "!!! 1er cours le 24.09 !!! - Salles à confirmer poste vacant/prof. externe",
+      "details": null,
       "dublicate": null
     },
     {
@@ -294,10 +289,10 @@
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
+      "lecturer": "!!! 1er cours le 25.09 !!! poste vacant/prof. externe",
       "details": null,
       "dublicate": [
-        "Anthropole/5033"
+        "Anthropole/2055"
       ]
     },
     {
@@ -316,13 +311,13 @@
       "day": "Thursday",
       "time_start": "08:30",
       "time_end": "10:00",
-      "lecture_name": "English for Studying Economics",
+      "lecture_name": "English for Studying Economics (A)",
       "location": "Anthropole/5093",
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
-      "details": "Salles à confirmer",
+      "lecturer": "!!! 1er cours le 25.09 !!! - Salles à confirmer poste vacant/prof. externe",
+      "details": null,
       "dublicate": null
     },
     {
@@ -331,22 +326,22 @@
       "time_end": "12:00",
       "lecture_name": "Statistique et économétrie I",
       "location": "Anthropole/4021",
-      "period": "Automne",
+      "period": "S10 - Automne",
       "year": "bac2a",
-      "lecturer": "L.Goette",
-      "details": "Exercices"
+      "lecturer": "1ère séance le 25.09.2014 !!! L.Goette",
+      "details": "jeudi :"
     },
     {
       "day": "Thursday",
       "time_start": "10:15",
       "time_end": "12:00",
       "lecture_name": "Statistique et économétrie I",
-      "location": "Anthropole/5033",
-      "group": null,
-      "period": "Automne",
+      "location": "Internef/129",
+      "group": "Groupes du",
+      "period": "S10 - Automne",
       "year": "bac2a",
-      "lecturer": "L.Goette",
-      "details": "Exercices"
+      "lecturer": "1ère séance le 25.09.2014 !!! L.Goette",
+      "details": "jeudi :"
     },
     {
       "day": "Thursday",
@@ -370,18 +365,18 @@
       "period": "Automne",
       "year": "bac2a",
       "lecturer": "P.Andrade",
-      "details": null
+      "details": "!!! 18.09 : AMPHIPÔLE D !!!"
     },
     {
       "day": "Thursday",
       "time_start": "15:15",
       "time_end": "17:00",
       "lecture_name": "Business English (A)",
-      "location": "Anthropole/1015",
+      "location": "Anthropole/5125",
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
+      "lecturer": "!!! 1er cours le 25.09 !!! poste vacant/prof. externe",
       "details": null,
       "dublicate": [
         "Anthropole/1018"
@@ -391,13 +386,13 @@
       "day": "Thursday",
       "time_start": "15:15",
       "time_end": "17:00",
-      "lecture_name": "English for Studying Economics",
-      "location": "Anthropole/1015",
+      "lecture_name": "English for Studying Economics (A)",
+      "location": "Anthropole/5125",
       "group": "groupe A",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
-      "details": "Salles à confirmer",
+      "lecturer": "!!! 1er cours le 25.09 !!! - Salles à confirmer poste vacant/prof. externe",
+      "details": null,
       "dublicate": null
     },
     {
@@ -410,35 +405,19 @@
       "period": "Automne",
       "year": "bac2a",
       "lecturer": "A.van Ackere",
-      "details": "Exercices"
+      "details": "Exercices !!! 18.09 : AMPHIPÔLE D !!!"
     },
     {
-      "day": "Thursday",
-      "time_start": "17:15",
-      "time_end": "19:00",
-      "lecture_name": "Business English (A)",
-      "location": "Anthropole/1015",
-      "group": "groupe A",
+      "day": "Friday",
+      "time_start": "08:30",
+      "time_end": "10:00",
+      "lecture_name": "Analyse économique : macroéconomie",
+      "location": "Anthropole/1031",
+      "group": "groupe B",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
-      "details": null,
-      "dublicate": [
-        "Anthropole/5146"
-      ]
-    },
-    {
-      "day": "Thursday",
-      "time_start": "17:15",
-      "time_end": "19:00",
-      "lecture_name": "English for Studying Economics",
-      "location": "Anthropole/1015",
-      "group": "groupe A",
-      "period": "Automne",
-      "year": "bac2a",
-      "lecturer": "poste vacant/prof. externe",
-      "details": "Salles à confirmer",
-      "dublicate": null
+      "lecturer": "M.Thoenig",
+      "details": null
     },
     {
       "day": "Friday",
@@ -450,18 +429,6 @@
       "period": "Automne",
       "year": "bac2a",
       "lecturer": "M.Thoenig",
-      "details": null
-    },
-    {
-      "day": "Friday",
-      "time_start": "08:30",
-      "time_end": "10:00",
-      "lecture_name": "Statistique et économétrie I",
-      "location": "Internef/263",
-      "group": "groupe B",
-      "period": "Automne",
-      "year": "bac2a",
-      "lecturer": "R.Lalive",
       "details": null
     },
     {
@@ -486,19 +453,31 @@
       "period": "Automne",
       "year": "bac2a",
       "lecturer": "L.Goette",
-      "details": null
+      "details": "!!! 10.10 : AMPHIPÔLE B !!!"
     },
     {
       "day": "Friday",
       "time_start": "15:15",
       "time_end": "17:00",
-      "lecture_name": "Analyse économique : macroéconomie",
-      "location": "Amphimax/351",
+      "lecture_name": "Comptes de groupe et contrôle externe",
+      "location": "Internef/263",
+      "group": "groupe A",
+      "period": "Automne",
+      "year": "bac2a",
+      "lecturer": "Y.Darbellay",
+      "details": "Exercices"
+    },
+    {
+      "day": "Friday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "Statistique et économétrie I",
+      "location": "Amphipôle/D",
       "group": "groupe B",
       "period": "Automne",
       "year": "bac2a",
-      "lecturer": "P.Andrade",
-      "details": "!! 19.12 !! cours à l'Amphimax/350"
+      "lecturer": "L.Goette",
+      "details": "!!! 10.10 : AMPHIPÔLE B !!!"
     }
   ]
 }

@@ -10,8 +10,8 @@ var fs = require('fs');
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 courses = {
-    'bac1a': 10394
-    //'bac2a': 10364
+    //'bac1a': 10394
+    'bac2a': 10892
     //'bac1' : 1  //exams
     //'bac1p' : 10190
 };
@@ -51,8 +51,8 @@ function perCourse(courseId, callback) {
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    //writeToJSON();
-    writeToICAL();
+    writeToJSON();
+    //writeToICAL();
     //writeToICAL('B');
     //writeToICAL('C');
 });
