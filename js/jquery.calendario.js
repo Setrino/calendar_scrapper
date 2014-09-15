@@ -178,7 +178,7 @@
                                 thirdGroup = false;
                             }
                             var tempData = lecture.time_start + '-' + lecture.time_end + "</br>" + lecture.lecture_name +
-                                    "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') +
+                                    "</br>" + ((lecture.group != null) ? lecture.group.substr(6, 2) + " | " : '') + "</br>" +
                                         lecture.location + "</br>" + lecture.lecturer + "</br></br>";
 
                             if(lecture.day == this.options.weeks[currentDay]){
