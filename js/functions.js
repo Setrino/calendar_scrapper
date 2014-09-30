@@ -180,7 +180,7 @@ function showEvents( $contentEl, dateProperties ) {
             '</h4></div>'),
         $close = $( '<span class="custom-content-close"></span>' ).on( 'click', hideEvents );
     $events.append( "<div class='custom-content-text'></br>" + $contentEl.html() + '</div>' , $close ).insertAfter( $wrapper );
-    $('#custom-content-reveal').css('height', $(".custom-content-text").height() + 75);
+    $('#custom-content-reveal').css('height', $(".custom-content-text").height() + 63);
 
 
     setTimeout( function() {
