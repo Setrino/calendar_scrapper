@@ -11,17 +11,18 @@ days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sun
 
 courses = {
     //'bac1a': 10394
-    'bac2a': 10892
+    //'bac2a': 10892
     //'bac1' : 1  //exams
-    //'bac1p' : 10190
+    'bac1p' : 11547
+    //'bac2p' : 11565
 };
 
 dates = {
-    'Monday'    : '2014-09-15',
-    'Tuesday'   : '2014-09-16',
-    'Wednesday' : '2014-09-17',
-    'Thursday'  : '2014-09-18',
-    'Friday'    : '2014-09-19'
+    'Monday'    : '2015-02-18',
+    'Tuesday'   : '2015-02-19',
+    'Wednesday' : '2015-02-20',
+    'Thursday'  : '2015-02-21',
+    'Friday'    : '2015-02-22'
 
 }
 
@@ -51,10 +52,11 @@ function perCourse(courseId, callback) {
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    writeToJSON();
-    //writeToICAL();
-    //writeToICAL('B');
-    //writeToICAL('C');
+    //writeToJSON();
+    writeToICAL();
+    writeToICAL('A');
+    writeToICAL('B');
+    writeToICAL('C');
 });
 
 
@@ -143,9 +145,8 @@ Lecture.prototype = {
     }
 }
 
+//Object, current string, array fo elements, course, day, finished callback
 function recursiveEvents(current, string, array, course, day, callback){
-
-    //console.log(event.length + " " + day + " " + new Lecture(day, course, 0, null));
 
     var lectureT = current;
 
@@ -200,16 +201,27 @@ function recursiveEvents(current, string, array, course, day, callback){
             lectureT.setPeriod(string);
             recursiveEvents(lectureT, '', array, course, day, callback);
         }else if(string.match(/groupe/i) && !string.match(/de/i)){
-
-            if(string.length == 6){
+            if(string.length == 6 && !array[0].match('ayant')){
                 string += ' ' + array.shift();
                 lectureT.setGroup(string);
             }else{
-                var tempS = string.split(' ').pop();
-                var string = string.substring(0, string.length - 7);
-                tempS += ' ' + array.shift();
-                lectureT.setGroup(tempS);
-                lectureT.setDetails(string);
+                if(string.match('par')){
+                    lectureT.setDetails(string);
+                    recursiveEvents(lectureT, '', array, course, day, callback);
+                }else if(string.match('ayant') || array[0].match('ayant')){
+                    if(checkLecturer(array[0])){
+                        lectureT.setDetails(string);
+                        recursiveEvents(lectureT, '', array, course, day, callback);
+                    }else{
+                        recursiveEvents(lectureT, string, array, course, day, callback);
+                    }
+                }else{
+                    var tempS = string.split(' ').pop();
+                    var string = string.substring(0, string.length - 7);
+                    tempS += ' ' + array.shift();
+                    lectureT.setGroup(tempS);
+                    lectureT.setDetails(string);
+                }
             }
             recursiveEvents(lectureT, '', array, course, day, callback);
             //Lecturer's name
@@ -223,6 +235,10 @@ function recursiveEvents(current, string, array, course, day, callback){
                 }else{
                     recursiveEvents(lectureT, string, array, course, day, callback);
                 }
+            }else if(string.match('M.Schmid')){
+                lectureT.setLecturer(string + ' ' + array.shift());
+                timetable.push(lectureT);
+                recursiveEvents(null, '', array, course, day, callback);
             }else if(string.match(/\.+\s+[a-z]/i) && array.length > 1 && checkLecturer(array[0])){
                 lectureT.setDetails(string);
                 recursiveEvents(lectureT, '', array, course, day, callback);
@@ -254,6 +270,8 @@ function recursiveEvents(current, string, array, course, day, callback){
         // Check Details
         }else if(string.match(/^[a-z0-9àÀ-ÿ\-\ '!@#\$%\^\&*\)\(+=., ]+$/i)){
 
+            //console.log(string);
+
             if(string.toLowerCase().match(/semaine/)){
                 //console.log(string);
             }
@@ -263,12 +281,13 @@ function recursiveEvents(current, string, array, course, day, callback){
                 recursiveEvents(lectureT, '', array, course, day, callback);
             }else if(string.match(/(!!)/) || string.match(/(!!!)/)){
                 recursiveEvents(lectureT, string, array, course, day, callback);
+
             }else if(array.length > 1 && checkRoom(array[0])){
+
                 //console.log(string + ' ' + array[0]);
                 if(checkLecturer(array[1])){
                     lectureT.setDetails(string + ' ' + array.shift());
                 }else{
-                    //console.log(string);
                     lectureT.setLecture_Name(string);
                 }
                 recursiveEvents(lectureT, '', array, course, day, callback);
@@ -288,9 +307,18 @@ function recursiveEvents(current, string, array, course, day, callback){
             if((string.match(/!!/) && array[0] == '!!') || string.match(/!!!/)){
                 recursiveEvents(lectureT, string, array, course, day, callback);
             }else if(string.match(/Analyse/)){
-                lectureT.setLecture_Name(string);
-                recursiveEvents(lectureT, '', array, course, day, callback);
+                if(array[0].match('éco')){
+                    lectureT.setLecture_Name(string + ' ' + array.shift());
+                    recursiveEvents(lectureT, '', array, course, day, callback);
+                }else{
+                    lectureT.setLecture_Name(string);
+                    recursiveEvents(lectureT, '', array, course, day, callback);
+                }
+            }else if(string.match('app')){
+                    lectureT.setLecture_Name(string + ' ' + array.shift());
+                    recursiveEvents(lectureT, '', array, course, day, callback);
             }else{
+
                 lectureT.setDetails(string);
                 recursiveEvents(lectureT, '', array, course, day, callback);
             }

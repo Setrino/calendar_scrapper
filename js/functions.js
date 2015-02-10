@@ -2,7 +2,7 @@ function DropDown(el, callback) {
     this.dd = el;
     this.placeholder = this.dd.children('span');
     this.opts = this.dd.find('ul.dropdown > li');
-    this.firstText = this.dd.find('ul.dropdown > li:last-child').text();
+    this.firstText = getCookie("year") || this.dd.find('ul.dropdown > li:last-child').text();
     this.val = '';
     this.index = -1;
     this.initEvents(callback);
@@ -22,6 +22,7 @@ DropDown.prototype = {
             obj.val = opt.text();
             obj.index = opt.index();
             obj.placeholder.text(obj.val);
+            updateTime(obj.placeholder.text());
             new jsonEvents(function(value) { json.getCal().setJSON(value); }, requestFilename(obj.placeholder.text()));
         });
 
@@ -37,12 +38,20 @@ DropDown.prototype = {
                 window.location = 'ical/' + requestFilename(obj.placeholder.text()) + '_groupeA.ics';
             }else if($( '#groups .groupB' ).is(".line-through") && $( '#groups .groupA' ).is(".line-through")){
                 window.location = 'ical/' + requestFilename(obj.placeholder.text()) + '_groupeC.ics';
+            }else if(!$( '#groups .groupB' ).is(".line-through") && !$( '#groups .groupA' ).is(".line-through")){
+                window.location = 'ical/' + requestFilename(obj.placeholder.text()) + '_groupe.ics';
             }
         });
+
+        function updateTime(year){
+            setCookie("year",year, 60);
+        }
 
         obj.placeholder.text(obj.firstText);
 
             var json = new jsonEvents(function(value) {
+
+                console.log(value);
 
                 var cal = $( '#calendar' ).calendario( {
                         onDayClick : function( $el, $contentEl, dateProperties ) {

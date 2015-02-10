@@ -141,7 +141,7 @@
 				// number of days in the month
 				monthLength = d.getDate(),
 				firstDay = new Date( this.year, this.month, 1),
-                thirdGroup = true;
+                thirdGroup = 0;
 
 			// day of the week
 			this.startingDay = firstDay.getDay();
@@ -173,9 +173,7 @@
                         for(var object in this.jsonEvents.timetable){
                             var lecture = this.jsonEvents.timetable[object];
                             if(lecture.group != null && lecture.group.substr(7, 1) == 'C'){
-                                thirdGroup = true;
-                            }else{
-                                thirdGroup = false;
+                                thirdGroup += 1;
                             }
                             var details = (lecture.details) ? "<span class='italic'>" + lecture.details + "</span>" : '';
                             var tempData = lecture.time_start + '-' + lecture.time_end + "</br>" + lecture.lecture_name +
@@ -238,11 +236,13 @@
 			}
 			html += '</div></div>';
 
-            if(thirdGroup){
+            if(thirdGroup > 0){
                 $('.groupC').css('display', 'block');
             }else{
                 $('.groupC').css('display', 'none');
             }
+
+            thirdGroup = 0;
 
 			return html;
 

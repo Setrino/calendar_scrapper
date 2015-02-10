@@ -1,0 +1,588 @@
+{
+  "timetable": [
+    {
+      "day": "Monday",
+      "time_start": "08:00",
+      "time_end": "10:00",
+      "lecture_name": "Communication et Leadership",
+      "location": "Amphipôle/D",
+      "group": "groupe A",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "M.Schmid Mast",
+      "details": null,
+      "dublicate": null
+    },
+    {
+      "day": "Monday",
+      "time_start": "08:00",
+      "time_end": "10:00",
+      "lecture_name": "Fondamentaux de contrôle de gestion et exercices",
+      "location": "Amphimax/410",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "D.Oyon",
+      "details": "Exercices"
+    },
+    {
+      "day": "Monday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "Communication et Leadership",
+      "location": "Amphipôle/D",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "M.Schmid Mast",
+      "details": null,
+      "dublicate": null
+    },
+    {
+      "day": "Monday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "Fondamentaux de contrôle de gestion et exercices",
+      "location": "Amphimax/351",
+      "group": "groupe A",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "D.Oyon",
+      "details": "Exercices"
+    },
+    {
+      "day": "Monday",
+      "time_start": "13:15",
+      "time_end": "15:00",
+      "lecture_name": "Analyse économique : microéconomie",
+      "location": "Anthropole/1129",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "A.Bruhin",
+      "details": "Groupe ayant choisi le cours en anglais"
+    },
+    {
+      "day": "Monday",
+      "time_start": "13:15",
+      "time_end": "15:00",
+      "lecture_name": "Statistique et économétrie appliquées: introduction",
+      "location": "Internef/CEI",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "G.Flores",
+      "details": "Exercices - par groupes"
+    },
+    {
+      "day": "Monday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "Business English (B)",
+      "location": "Anthropole/3088",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/5071",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Monday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "English for Studying Economics (B)",
+      "location": "Anthropole/1015",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/5071",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Monday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "Statistique et économétrie appliquées: introduction",
+      "location": "Internef/CEI",
+      "group": null,
+      "period": "5 - Printemps",
+      "year": "bac2p",
+      "lecturer": "G.Flores",
+      "details": "Exercices - par groupes"
+    },
+    {
+      "day": "Monday",
+      "time_start": "17:15",
+      "time_end": "19:00",
+      "lecture_name": "Statistique et économétrie appliquées: introduction",
+      "location": "Internef/CEI",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "G.Flores",
+      "details": "Exercices - par groupes"
+    },
+    {
+      "day": "Tuesday",
+      "time_start": "08:30",
+      "time_end": "10:00",
+      "lecture_name": "Business English (B)",
+      "location": "Anthropole/1018",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/5146",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "time_start": "08:30",
+      "time_end": "10:00",
+      "lecture_name": "English for Studying Economics (B)",
+      "location": "Anthropole/1018",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/5146",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "Fondamentaux de contrôle de gestion et exercices",
+      "location": "Amphipôle/B",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "D.Oyon",
+      "details": null
+    },
+    {
+      "day": "Tuesday",
+      "time_start": "13:15",
+      "time_end": "15:00",
+      "lecture_name": "Business English (B)",
+      "location": "Anthropole/1018",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/5136",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "time_start": "13:15",
+      "time_end": "15:00",
+      "lecture_name": "English for Studying Economics (B)",
+      "location": "Anthropole/1018",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/5136",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "time_start": "13:15",
+      "time_end": "15:00",
+      "lecture_name": "Fondamentaux de contrôle de gestion et exercices",
+      "location": "Amphipôle/D",
+      "group": "groupe A",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "D.Oyon",
+      "details": null
+    },
+    {
+      "day": "Tuesday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "Analyse économique : microéconomie",
+      "location": "Amphipôle/A",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "A.Bruhin",
+      "details": "Groupe ayant choisi le cours en français"
+    },
+    {
+      "day": "Tuesday",
+      "time_start": "17:15",
+      "time_end": "19:00",
+      "lecture_name": "Statistique et économétrie appliquées: introduction",
+      "location": "Internef/CEI",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "G.Flores",
+      "details": "Exercices - par groupes"
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "08:00",
+      "time_end": "10:00",
+      "lecture_name": "Principes de finance",
+      "location": "Amphimax/410",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "M.Rockinger",
+      "details": "Exercices"
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "08:00",
+      "time_end": "10:00",
+      "lecture_name": "Principes de finance",
+      "location": "Anthropole/1129",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "M.Rockinger",
+      "details": "Exercices"
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "Business English (B)",
+      "location": "Anthropole/2102",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/4021",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "Business Intelligence and Analytics",
+      "location": "Amphipôle/B",
+      "group": "groupe A",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "P.Andritsos",
+      "details": null
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "English for Studying Economics (B)",
+      "location": "Anthropole/2102",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": "Salles à confirmer",
+      "dublicate": [
+        "Anthropole/4021",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "13:15",
+      "time_end": "15:00",
+      "lecture_name": "Business Intelligence and Analytics",
+      "location": "Amphipôle/D",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "P.Andritsos",
+      "details": null
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "13:15",
+      "time_end": "15:00",
+      "lecture_name": "Risk Management",
+      "location": "Amphipôle/B",
+      "group": "groupe A",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "J.Wagner",
+      "details": null
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": null,
+      "location": "Internef/271",
+      "group": "groupe A",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "M.Schmid Mast",
+      "details": "Exercices",
+      "dublicate": null
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "Risk Management",
+      "location": "Amphipôle/B",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "J.Wagner",
+      "details": null
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "17:15",
+      "time_end": "19:00",
+      "lecture_name": "Business English (B)",
+      "location": "Anthropole/2102",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": null,
+      "dublicate": null
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "17:15",
+      "time_end": "19:00",
+      "lecture_name": "English for Studying Economics (B)",
+      "location": "Anthropole/2102",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": "Salles à confirmer",
+      "dublicate": [
+        "Anthropole/5018",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "time_start": "17:15",
+      "time_end": "19:00",
+      "lecture_name": null,
+      "location": null,
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "M.Rockinger",
+      "details": "Exercices"
+    },
+    {
+      "day": "Thursday",
+      "time_start": "08:30",
+      "time_end": "10:00",
+      "lecture_name": "Business Intelligence and Analytics",
+      "location": "Internef/273",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "P.Andritsos",
+      "details": "Exercices"
+    },
+    {
+      "day": "Thursday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "Business English (B)",
+      "location": "Anthropole/3077",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": "Horaire à confirmer",
+      "dublicate": [
+        "Géopolis/2235",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Thursday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "English for Studying Economics (B)",
+      "location": "Anthropole/3077",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": "Salles à confirmer",
+      "dublicate": [
+        "Géopolis/2235",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Thursday",
+      "time_start": "10:15",
+      "time_end": "13:00",
+      "lecture_name": "Principes de finance",
+      "location": "Amphimax/351",
+      "group": "groupe A",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "M.Rockinger",
+      "details": null
+    },
+    {
+      "day": "Thursday",
+      "time_start": "14:15",
+      "time_end": "17:00",
+      "lecture_name": "Principes de finance",
+      "location": "Amphimax/351",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "M.Rockinger",
+      "details": null
+    },
+    {
+      "day": "Thursday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "Business Intelligence and Analytics",
+      "location": "Anthropole/1129",
+      "group": "groupe A",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "P.Andritsos",
+      "details": "Exercices"
+    },
+    {
+      "day": "Thursday",
+      "time_start": "17:15",
+      "time_end": "19:00",
+      "lecture_name": "Business English (B)",
+      "location": "Anthropole/3028",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": null,
+      "dublicate": [
+        "Anthropole/3077",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Thursday",
+      "time_start": "17:15",
+      "time_end": "19:00",
+      "lecture_name": "English for Studying Economics (B)",
+      "location": "Anthropole/5018",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "poste vacant/prof. externe",
+      "details": "Salles à confirmer",
+      "dublicate": [
+        "Anthropole/5146",
+        "groupe B"
+      ]
+    },
+    {
+      "day": "Friday",
+      "time_start": "08:30",
+      "time_end": "10:00",
+      "lecture_name": "Statistique et économétrie appliquées: introduction",
+      "location": "Anthropole/1031",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "G.Flores",
+      "details": "Merci de consulter le site du cours pour les horaires de chaque groupe !"
+    },
+    {
+      "day": "Friday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": "Analyse économique : microéconomie",
+      "location": "Amphimax/351",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "A.Bruhin",
+      "details": "Groupe ayant choisi le cours en français"
+    },
+    {
+      "day": "Friday",
+      "time_start": "10:15",
+      "time_end": "12:00",
+      "lecture_name": null,
+      "location": null,
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "S.De Treville",
+      "details": "Groupe ayant choisi l'anglais"
+    },
+    {
+      "day": "Friday",
+      "time_start": "13:15",
+      "time_end": "15:00",
+      "lecture_name": "Analyse économique : microéconomie",
+      "location": "Anthropole/1031",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "A.Bruhin",
+      "details": "Groupe ayant choisi le cours en anglais"
+    },
+    {
+      "day": "Friday",
+      "time_start": "13:15",
+      "time_end": "15:00",
+      "lecture_name": "Gestion des opérations I",
+      "location": "Amphipôle/D",
+      "group": null,
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "S.De Treville",
+      "details": "Groupe ayant choisi le français"
+    },
+    {
+      "day": "Friday",
+      "time_start": "15:15",
+      "time_end": "17:00",
+      "lecture_name": "Communication et Leadership",
+      "location": "Anthropole/2064",
+      "group": "groupe B",
+      "period": "Printemps",
+      "year": "bac2p",
+      "lecturer": "M.Schmid Mast",
+      "details": "Exercices",
+      "dublicate": null
+    }
+  ]
+}
