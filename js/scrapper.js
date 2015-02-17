@@ -13,17 +13,16 @@ courses = {
     //'bac1a': 10394
     //'bac2a': 10892
     //'bac1' : 1  //exams
-    'bac1p' : 11610
-    //'bac2p' : 11565
+    //'bac1p' : 11610
+    'bac2p' : 11565
 };
 
 dates = {
-    'Monday'    : '2015-02-18',
-    'Tuesday'   : '2015-02-19',
-    'Wednesday' : '2015-02-20',
-    'Thursday'  : '2015-02-21',
-    'Friday'    : '2015-02-22'
-
+    'Monday'    : '2015-02-16',
+    'Tuesday'   : '2015-02-17',
+    'Wednesday' : '2015-02-18',
+    'Thursday'  : '2015-02-19',
+    'Friday'    : '2015-02-20'
 }
 
 var courseIds = Object.keys(courses);
@@ -53,10 +52,10 @@ function perCourse(courseId, callback) {
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
     writeToJSON();
-    writeToICAL();
+    //writeToICAL();
     writeToICAL('A');
     writeToICAL('B');
-    writeToICAL('C');
+    //writeToICAL('C');
 });
 
 
