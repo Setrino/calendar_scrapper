@@ -153,8 +153,8 @@
       "group": "groupe C",
       "period": "Printemps",
       "year": "bac1p",
-      "lecturer": "M.Amand",
-      "details": "Exercices"
+      "lecturer": "Exercices !!! 1ère séance le 3 mars 2015 !!! M.Amand",
+      "details": null
     },
     {
       "day": "Wednesday",
@@ -256,11 +256,11 @@
       "time_start": "08:00",
       "time_end": "10:00",
       "lecture_name": "Mathématiques II",
-      "location": "Amphipôle/B",
-      "group": "groupe B",
+      "location": "Amphipôle/A",
+      "group": "groupe A",
       "period": "Printemps",
       "year": "bac1p",
-      "lecturer": "C.Darbellay",
+      "lecturer": "F.Dufresne",
       "details": null
     },
     {
@@ -268,11 +268,11 @@
       "time_start": "08:00",
       "time_end": "10:00",
       "lecture_name": "Mathématiques II",
-      "location": "Amphipôle/A",
-      "group": "groupe A",
+      "location": "Amphipôle/B",
+      "group": "groupe B",
       "period": "Printemps",
       "year": "bac1p",
-      "lecturer": "F.Dufresne",
+      "lecturer": "C.Darbellay",
       "details": null
     },
     {
@@ -296,8 +296,8 @@
       "group": "groupe A",
       "period": "Printemps",
       "year": "bac1p",
-      "lecturer": "M.Amand",
-      "details": "Exercices"
+      "lecturer": "Exercices !!! 1ère séance le 5 mars 2015 !!! M.Amand",
+      "details": null
     },
     {
       "day": "Thursday",
@@ -392,8 +392,8 @@
       "group": "groupe B",
       "period": "Printemps",
       "year": "bac1p",
-      "lecturer": "M.Amand",
-      "details": "Exercices"
+      "lecturer": "Exercices !!! 1ère séance le 6 mars 2015 !!! M.Amand",
+      "details": null
     },
     {
       "day": "Friday",

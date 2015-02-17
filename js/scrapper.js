@@ -13,7 +13,7 @@ courses = {
     //'bac1a': 10394
     //'bac2a': 10892
     //'bac1' : 1  //exams
-    'bac1p' : 11547
+    'bac1p' : 11610
     //'bac2p' : 11565
 };
 
@@ -52,7 +52,7 @@ function perCourse(courseId, callback) {
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    //writeToJSON();
+    writeToJSON();
     writeToICAL();
     writeToICAL('A');
     writeToICAL('B');
@@ -338,6 +338,7 @@ function writeToJSON(){
 
 function writeToICAL(groupL){
 
+
     var myJSON = (eval ("(" + JSON.stringify({timetable: timetable}) + ")"))['timetable'],
         icalEvents = [];
 
@@ -373,7 +374,7 @@ function writeToICAL(groupL){
             },
             repeat: {
                 frequency: 'WEEKLY',
-                until: '20141219T225959Z'
+                until: '20150601T225959Z'
             }
         });
         icalEvents.push(event.toString());
