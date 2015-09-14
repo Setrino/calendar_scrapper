@@ -220,7 +220,7 @@ function hideEvents() {
 function requestFilename(text){
 
     var temp = text.substr(11, 2).toLowerCase();
-    if(temp == 'sp' || temp == 'bm'){
+    if(temp == 'ep' || temp == 'bm'){
         return 'bac' + text.substr(9, 1) + text.substr(14, 1).toLowerCase() + "_" + temp;
     }else{
         return 'bac' + text.substr(9, 1) + text.substr(11, 1).toLowerCase();

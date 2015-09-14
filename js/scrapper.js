@@ -15,7 +15,7 @@ courses = {
     //'bac1' : 1  //exams
     //'bac1p' : 11610
     //'bac2p' : 11565
-    'bac3a_bm' : 12416
+    'bac3a_ep' : 12416
 };
 
 dates = {
@@ -53,7 +53,7 @@ function perCourse(courseId, callback) {
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    //writeToJSON();
+    writeToJSON();
     writeToICAL();
     writeToICAL('A');
     writeToICAL('B');
