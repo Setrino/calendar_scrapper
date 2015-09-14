@@ -15,7 +15,8 @@ courses = {
     //'bac1' : 1  //exams
     //'bac1p' : 11610
     //'bac2p' : 11565
-    'bac3a_ep' : 12422
+    //'bac3a_ep' : 12422
+    'bac3a_bm' : 12416
 };
 
 dates = {
