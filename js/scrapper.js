@@ -54,7 +54,7 @@ function perCourse(courseId, callback) {
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    writeToJSON();
+    //writeToJSON();
     writeToICAL();
     writeToICAL('A');
     writeToICAL('B');
@@ -417,6 +417,8 @@ function writeToICAL(groupL){
     var myJSON = (eval ("(" + JSON.stringify({timetable: timetable}) + ")"))['timetable'],
         icalEvents = [];
 
+    //console.log(myJSON);
+
     for(var object in myJSON){
         var lecture = myJSON[object];
         var regEx = new RegExp(groupL, 'g');
@@ -427,7 +429,7 @@ function writeToICAL(groupL){
             addEvent(lecture);
         }
 
-    fs.writeFile('../ical/' + file + '_groupe' + ((groupL) || '') + '.ics', wrapString(icalEvents.join()), function(err) {
+    fs.writeFile('../ical/' + file + '_groupe' + ((groupL) || '') + '.ics', wrapString(icalEvents.join("")), function(err) {
         if(err) {
             console.log(err);
         } else {
