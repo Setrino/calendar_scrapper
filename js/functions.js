@@ -219,7 +219,12 @@ function hideEvents() {
 
 function requestFilename(text){
 
-    return 'bac' + text.substr(9, 1) + text.substr(11, 1).toLowerCase();
+    var temp = text.substr(11, 2).toLowerCase();
+    if(temp == 'sp' || temp == 'bm'){
+        return 'bac' + text.substr(9, 1) + text.substr(14, 1).toLowerCase() + "_" + temp;
+    }else{
+        return 'bac' + text.substr(9, 1) + text.substr(11, 1).toLowerCase();
+    }
 }
 
 function getCookie(c_name)

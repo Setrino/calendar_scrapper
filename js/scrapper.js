@@ -10,19 +10,20 @@ var fs = require('fs');
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 courses = {
-    //'bac1a': 10394
-    //'bac2a': 10892
+    //'bac1a': 12428
+    //'bac2a': 12410
     //'bac1' : 1  //exams
     //'bac1p' : 11610
-    'bac2p' : 11565
+    //'bac2p' : 11565
+    'bac3a_bm' : 12416
 };
 
 dates = {
-    'Monday'    : '2015-02-16',
-    'Tuesday'   : '2015-02-17',
-    'Wednesday' : '2015-02-18',
-    'Thursday'  : '2015-02-19',
-    'Friday'    : '2015-02-20'
+    'Monday'    : '2015-09-14',
+    'Tuesday'   : '2015-09-15',
+    'Wednesday' : '2015-09-16',
+    'Thursday'  : '2015-09-17',
+    'Friday'    : '2015-09-28'
 }
 
 var courseIds = Object.keys(courses);
@@ -38,21 +39,22 @@ function perCourse(courseId, callback) {
 
         $('#content-core .list').each(function(day){
 
+            var html = $(this).html().trim().replace(/\s\s+|\r\n|\n|\r|<.?div>|<!--.+-->/gm, '');
+
             var event = $(this).text().trim().replace(/\s\s+/g, ' ').split(" ");
 
             if(event.length > 1){
-
-                recursiveEvents(null, '', event, course, days[day], function(){
-
-                });}
+                tableLoop(html, days[day], course, function(){});
+                //recursiveEvents(null, '', event, course, days[day], function(){});
+            }
         }), callback();
     }})(courseId));
 }
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    writeToJSON();
-    //writeToICAL();
+    //writeToJSON();
+    writeToICAL();
     writeToICAL('A');
     writeToICAL('B');
     //writeToICAL('C');
@@ -141,6 +143,20 @@ Lecture.prototype = {
     setDetails: function(details){
 
         this.details = details;
+    },
+
+    copy: function(lecture){
+        this.day = lecture.day;
+        this.time_start = lecture.time_start;
+        this.time_end = lecture.time_end;
+        this.lecture_name = lecture.lecture_name;
+        //this.location = lecture.location;
+        //this.group = lecture.group;
+        this.period = lecture.period;
+        this.year = lecture.year;
+        this.lecturer = lecture.lecturer;
+        this.details = lecture.details;
+        this.dublicate = lecture.dublicate;
     }
 }
 
@@ -326,6 +342,65 @@ function recursiveEvents(current, string, array, course, day, callback){
     }
 }
 
+
+// 0 - start time
+// 2 - end time
+// 4 - description
+// 6 - professor
+function tableLoop(html, day, course, callback){
+    //console.log(html);
+    var lectures = html.match(/<tr>.+<\/tr>/).map(function(val){return val.replace(/<\/?tr>/g,'');});
+
+    for(var lecture in lectures){
+        var elements = lectures[lecture].match(/<td.*?>(.*?)<\/td>/g).map(function(val){return val.replace(/<\/?td.*?>/g,'');});
+        var i,j,temparray,chunk = 7;
+        for (i=0,j = elements.length; i < j; i += chunk) {
+            temparray = elements.slice(i,i + chunk);
+            var lectureT = new Lecture(day, course, 0, null);
+            lectureT.setTime_Start(temparray[0]);
+            lectureT.setTime_End(temparray[2]);
+            var lectureName = temparray[4].match(/<b.*?>(.*?)<\/b>/).map(function(val){return val.replace(/<\/?b>|<\/?a.*?>/g,'');});
+            lectureT.setLecture_Name(lectureName[0]);
+            var details = temparray[4].match(/<span>\-(.*?)<\/span><\/span>/gm);
+            if(details){
+                details = details.map(function(val){return val.replace(/<\/?span.*?>|\-/gm,'');});
+                lectureT.setDetails(details[0].substr(1));
+            }
+            var lecturer = temparray[6];
+            if(lecturer.match(/<\/?a.*?>/gm)){
+                lecturer = lecturer.replace(/<\/?a.*?>/gm,'');
+            }
+            lectureT.setLecturer(lecturer);
+            var period = (temparray[4].match(/\-<\/span><span>(.*?)<\/span><\/?span>/gm))[0];
+            if(period){
+                period.replace(/<\/?span.*?>|\-/gm,'');
+                lectureT.setPeriod(period);
+            }
+            var lectureRoom = temparray[4].match(/<span class=\"InfoText\"><span><span>(.*?)-<span>/gm).map(function(val){
+                return val.replace(/<\/?span.*?>|\-/gm,'');});
+            var matched = lectureRoom[0].match(/groupe ./i);
+            var rooms = [];
+            if(matched){
+                rooms = [lectureRoom[0].substring(0, matched.index).trim(), lectureRoom[0].substring(matched.index + 8,
+                    lectureRoom[0].length - 8).trim()];
+                lectureT.setLocation(rooms[0]);
+                lectureT.setGroup("Group A");
+                var lectureD = new Lecture(day, course, 0, null);
+                lectureD.copy(lectureT);
+                lectureD.setLocation(rooms[1]);
+                lectureD.setGroup("Group B");
+                timetable.push(lectureD);
+            }else{
+                lectureT.setLocation(lectureRoom[0]);
+            }
+            //console.log(matched);
+            timetable.push(lectureT);
+            //console.log("NA " + elements);
+        }
+    }
+    callback();
+}
+
 function writeToJSON(){
 
     var myJSON = eval ("(" + JSON.stringify({timetable: timetable}) + ")");
@@ -373,7 +448,7 @@ function writeToICAL(groupL){
             },
             repeat: {
                 frequency: 'WEEKLY',
-                until: '20150601T225959Z'
+                until: '20151224T225959Z'
             }
         });
         icalEvents.push(event.toString());
