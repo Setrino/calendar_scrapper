@@ -10,10 +10,10 @@ var fs = require('fs');
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 courses = {
-    'bac1p' : 13274
+    //'bac1p' : 13274
     //'bac2p' : 13265
     //'bac3p_bm' : 13294
-    //'bac3p_ep' : 13293
+    'bac3p_ep' : 13259
 };
 
 dates = {
@@ -55,7 +55,7 @@ async.each(courseIds, perCourse, function (err) {
     writeToICAL();
     writeToICAL('A');
     writeToICAL('B');
-    writeToICAL('C');
+    //writeToICAL('C');
 });
 
 
