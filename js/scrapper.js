@@ -10,21 +10,18 @@ var fs = require('fs');
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 courses = {
-    //'bac1a': 12428
-    //'bac2a': 12410
-    //'bac1' : 1  //exams
-    //'bac1p' : 11610
-    //'bac2p' : 11565
-    //'bac3a_ep' : 12422
-    'bac3a_bm' : 12416
+    'bac1p' : 13274
+    //'bac2p' : 13265
+    //'bac3p_bm' : 13294
+    //'bac3p_ep' : 13293
 };
 
 dates = {
-    'Monday'    : '2015-09-14',
-    'Tuesday'   : '2015-09-15',
-    'Wednesday' : '2015-09-16',
-    'Thursday'  : '2015-09-17',
-    'Friday'    : '2015-09-28'
+    'Monday'    : '2016-02-22',
+    'Tuesday'   : '2016-02-23',
+    'Wednesday' : '2016-02-24',
+    'Thursday'  : '2016-02-25',
+    'Friday'    : '2016-02-26'
 }
 
 var courseIds = Object.keys(courses);
@@ -54,11 +51,11 @@ function perCourse(courseId, callback) {
 
 async.each(courseIds, perCourse, function (err) {
     // Executed after for loop finished;
-    //writeToJSON();
+    writeToJSON();
     writeToICAL();
     writeToICAL('A');
     writeToICAL('B');
-    //writeToICAL('C');
+    writeToICAL('C');
 });
 
 
@@ -451,7 +448,7 @@ function writeToICAL(groupL){
             },
             repeat: {
                 frequency: 'WEEKLY',
-                until: '20151224T225959Z'
+                until: '20160601T225959Z'
             }
         });
         icalEvents.push(event.toString());
